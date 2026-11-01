@@ -22,29 +22,30 @@ public class SceneTransition : MonoBehaviour
     /// <summary>
     /// Transitions to the new scene
     /// </summary>
-    /// <todo>
-    /// Add error checking for a bad scene name
-    /// </todo>
     private void LoadScene()
     {
         SceneManager.LoadScene(transitionTarget);
-        // Add check here
 
-
-        // Confirm that scene has finished loading
-        Debug.Log("Scene Changed to " +  transitionTarget);
+        Debug.Log("Scene Changed to " + transitionTarget);
     }
 
     /// <summary>
-    /// public method to be triggered by button press
+    /// public method to be triggered by button press that triggers fade if target
+    /// scene is present.
     /// </summary>
     public void TransitionScene()
     {
         Debug.Log("Transition Called");
 
-        // Transition order
+        // Check scene is in build profiles
+        if (SceneUtility.GetBuildIndexByScenePath(transitionTarget) == -1)
+        {
+            Debug.LogWarning("There is no Scene with the name " + transitionTarget + " in the build profile");
+            // Do not fade out if there is no scene
+            return; 
+        }
+
         FadeOut();
-        FadeIn();
     }
 
     /// <summary>
@@ -52,7 +53,9 @@ public class SceneTransition : MonoBehaviour
     /// </summary>
     private void FadeOut()
     {
-        LeanTween.alphaCanvas(canvasGroup, 0, fadeOutSpeed);
+        LeanTween.alphaCanvas(canvasGroup, 1, fadeOutSpeed).setOnComplete(LoadScene);
+
+        Debug.Log("Fade Completed");
     }
 
     /// <summary>
@@ -60,7 +63,7 @@ public class SceneTransition : MonoBehaviour
     /// </summary>
     private void FadeIn()
     {
-
+        LeanTween.alphaCanvas(canvasGroup, 0, fadeInSpeed);
     }
 
 }
