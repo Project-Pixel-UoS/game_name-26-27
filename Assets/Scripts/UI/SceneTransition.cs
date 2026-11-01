@@ -12,6 +12,7 @@ public class SceneTransition : MonoBehaviour
 {
     // String name of target scene
     [SerializeField] private string transitionTarget;
+    [SerializeField] private CanvasGroup canvasGroup;
 
     // Speed to fade to black
     public float fadeOutSpeed;
@@ -21,9 +22,15 @@ public class SceneTransition : MonoBehaviour
     /// <summary>
     /// Transitions to the new scene
     /// </summary>
+    /// <todo>
+    /// Add error checking for a bad scene name
+    /// </todo>
     private void LoadScene()
     {
         SceneManager.LoadScene(transitionTarget);
+        // Add check here
+
+
         // Confirm that scene has finished loading
         Debug.Log("Scene Changed to " +  transitionTarget);
     }
@@ -37,7 +44,6 @@ public class SceneTransition : MonoBehaviour
 
         // Transition order
         FadeOut();
-        LoadScene();
         FadeIn();
     }
 
@@ -46,7 +52,7 @@ public class SceneTransition : MonoBehaviour
     /// </summary>
     private void FadeOut()
     {
-
+        LeanTween.alphaCanvas(canvasGroup, 0, fadeOutSpeed);
     }
 
     /// <summary>
