@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 /// <summary>
 /// Script to attach to a button object to transition to a new scene with fade
@@ -22,7 +23,9 @@ public class SceneTransition : MonoBehaviour
     /// </summary>
     private void LoadScene()
     {
-
+        SceneManager.LoadScene(transitionTarget);
+        // Confirm that scene has finished loading
+        Debug.Log("Scene Changed to " +  transitionTarget);
     }
 
     /// <summary>
