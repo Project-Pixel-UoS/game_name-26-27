@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
 /// <summary>
@@ -13,6 +14,7 @@ public class SceneTransition : MonoBehaviour
     // String name of target scene
     [SerializeField] private string transitionTarget;
     [SerializeField] private CanvasGroup canvasGroup;
+    [SerializeField] private UnityEvent onFadeComplete;
 
     // Speed to fade to black
     public float fadeOutSpeed; // Seconds
@@ -20,6 +22,8 @@ public class SceneTransition : MonoBehaviour
     public float fadeInSpeed; // Seconds
 
     public static SceneTransition instance;
+    // Track while fading is taking place
+    private static bool fading = false; 
 
     /// <summary>
     /// Ensures the transition for the ScreenTransition object to
@@ -48,8 +52,20 @@ public class SceneTransition : MonoBehaviour
     /// <param name="mode"></param> not used
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        FadeIn();
+        // Prevents function being called on initial scene load
+        if (fading)
+        {
+            FadeIn();
+        }
     }
+
+    /// <summary>
+    /// Accessor method for fading variable
+    /// </summary>
+    /// <returns>
+    /// The state of fading attribute
+    /// </returns>
+    public bool IsFading() { return fading; }
 
     /// <summary>
     /// Transitions to the new scene
@@ -86,6 +102,7 @@ public class SceneTransition : MonoBehaviour
     private void FadeOut()
     {
         canvasGroup.blocksRaycasts = true;
+        fading = true;
 
         LeanTween.alphaCanvas(canvasGroup, 1, fadeOutSpeed).setOnComplete(LoadScene);
 
@@ -93,12 +110,14 @@ public class SceneTransition : MonoBehaviour
     }
 
     /// <summary>
-    /// Fades back in from black to the new scene
+    /// Fades back in from black to the new scene and invokes 
+    /// on fade complete function
     /// </summary>
     private void FadeIn()
     {
-        LeanTween.alphaCanvas(canvasGroup, 0, fadeInSpeed);
+        LeanTween.alphaCanvas(canvasGroup, 0, fadeInSpeed).setOnComplete(onFadeComplete.Invoke);
 
+        fading = false;
         canvasGroup.blocksRaycasts = false;
     }
 
