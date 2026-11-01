@@ -15,9 +15,41 @@ public class SceneTransition : MonoBehaviour
     [SerializeField] private CanvasGroup canvasGroup;
 
     // Speed to fade to black
-    public float fadeOutSpeed;
-    // Speed to fade in to new scene
-    public float fadeInSpeed;
+    public float fadeOutSpeed; // Seconds
+    // Speed to fade in to new scene 
+    public float fadeInSpeed; // Seconds
+
+    public static SceneTransition instance;
+
+    /// <summary>
+    /// Ensures the transition for the ScreenTransition object to
+    /// the new scene to fade back in properly
+    /// </summary>
+    private void Awake()
+    {
+        // Kill other instances of scene transition
+        if (instance != null && instance != this)
+        {
+            Destroy(this.gameObject);
+            return;
+        }
+
+        instance = this;
+        DontDestroyOnLoad(this.gameObject);
+
+        // Trigger fade back in
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    /// <summary>
+    /// Begin fade in on new scene load
+    /// </summary>
+    /// <param name="scene"></param> not used
+    /// <param name="mode"></param> not used
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        FadeIn();
+    }
 
     /// <summary>
     /// Transitions to the new scene
@@ -53,6 +85,8 @@ public class SceneTransition : MonoBehaviour
     /// </summary>
     private void FadeOut()
     {
+        canvasGroup.blocksRaycasts = true;
+
         LeanTween.alphaCanvas(canvasGroup, 1, fadeOutSpeed).setOnComplete(LoadScene);
 
         Debug.Log("Fade Completed");
@@ -64,6 +98,8 @@ public class SceneTransition : MonoBehaviour
     private void FadeIn()
     {
         LeanTween.alphaCanvas(canvasGroup, 0, fadeInSpeed);
+
+        canvasGroup.blocksRaycasts = false;
     }
 
 }
