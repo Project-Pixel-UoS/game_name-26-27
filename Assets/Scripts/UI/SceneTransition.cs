@@ -20,7 +20,7 @@ public class SceneTransition : MonoBehaviour
     /// <summary>
     /// Transitions to the new scene
     /// </summary>
-    private void loadScene()
+    private void LoadScene()
     {
 
     }
@@ -28,18 +28,20 @@ public class SceneTransition : MonoBehaviour
     /// <summary>
     /// public method to be triggered by button press
     /// </summary>
-    public void transitionScene()
+    public void TransitionScene()
     {
+        Debug.Log("Transition Called");
+
         // Transition order
-        fadeOut();
-        loadScene();
-        fadeIn();
+        FadeOut();
+        LoadScene();
+        FadeIn();
     }
 
     /// <summary>
     /// Fades to black before transition
     /// </summary>
-    private void fadeOut()
+    private void FadeOut()
     {
 
     }
@@ -47,7 +49,7 @@ public class SceneTransition : MonoBehaviour
     /// <summary>
     /// Fades back in from black to the new scene
     /// </summary>
-    private void fadeIn()
+    private void FadeIn()
     {
 
     }
