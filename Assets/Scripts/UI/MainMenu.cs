@@ -20,5 +20,10 @@ public class MainMenu : MonoBehaviour
     public void Quit()
     {
         Application.Quit();
+
+        //Exit play mode in the editor
+        #if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+        #endif
     }
 }
