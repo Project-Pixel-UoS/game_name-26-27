@@ -21,9 +21,10 @@ public class UIWobble : MonoBehaviour
     {
         if (!objectToAnimate.LeanIsTweening())
         {
-            objectToAnimate.LeanRotateZ(WOBBLE_ANGLE, TIME);
-            objectToAnimate.LeanRotateZ(-WOBBLE_ANGLE, TIME * 2).setDelay(TIME);
-            objectToAnimate.LeanRotateZ(0.0f, TIME).setDelay(TIME * 3);
+            LTSeq sequence = LeanTween.sequence();
+            sequence.append(objectToAnimate.LeanRotateZ(WOBBLE_ANGLE, TIME));
+            sequence.append(objectToAnimate.LeanRotateZ(-WOBBLE_ANGLE, TIME * 2));
+            sequence.append(objectToAnimate.LeanRotateZ(0.0f, TIME));
         }
     }
 }
