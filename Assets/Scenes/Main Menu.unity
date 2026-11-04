@@ -1552,8 +1552,8 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 299398860}
-  - {fileID: 1463668408}
   - {fileID: 1480084454}
+  - {fileID: 1721582375}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -1561,6 +1561,30 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1522518440
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1522518435}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43e062e4aa6f10147aa5ab5115593e50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MainMenu
+  mainMenuPanel: {fileID: 299398859}
+  settingsPanel: {fileID: 1721582371}
+--- !u!1 &1721582371 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8151843293042755739, guid: 4ed46c93dccbb734ab3107e2515fb8c3, type: 3}
+  m_PrefabInstance: {fileID: 6555517380822117494}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &1721582375 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 8581705839941610487, guid: 4ed46c93dccbb734ab3107e2515fb8c3, type: 3}
+  m_PrefabInstance: {fileID: 6555517380822117494}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6555517380822117494
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1695,7 +1719,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4147168381971240426, guid: 4ed46c93dccbb734ab3107e2515fb8c3, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4288496220079957706, guid: 4ed46c93dccbb734ab3107e2515fb8c3, type: 3}
       propertyPath: m_Color.b
@@ -1743,7 +1767,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4754700200192729732, guid: 4ed46c93dccbb734ab3107e2515fb8c3, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4754700200192729732, guid: 4ed46c93dccbb734ab3107e2515fb8c3, type: 3}
       propertyPath: m_AnchorMin.x
@@ -1823,7 +1847,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5169545922297739156, guid: 4ed46c93dccbb734ab3107e2515fb8c3, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5627649365842839531, guid: 4ed46c93dccbb734ab3107e2515fb8c3, type: 3}
       propertyPath: m_SizeDelta.x
@@ -1883,7 +1907,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6654996306197802206, guid: 4ed46c93dccbb734ab3107e2515fb8c3, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7025302135722136829, guid: 4ed46c93dccbb734ab3107e2515fb8c3, type: 3}
       propertyPath: m_fontSize
@@ -1915,7 +1939,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7622127486744869317, guid: 4ed46c93dccbb734ab3107e2515fb8c3, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7921551157135407715, guid: 4ed46c93dccbb734ab3107e2515fb8c3, type: 3}
       propertyPath: m_Colors.m_PressedColor.b
@@ -1931,11 +1955,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8112154559783919567, guid: 4ed46c93dccbb734ab3107e2515fb8c3, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8151843293042755739, guid: 4ed46c93dccbb734ab3107e2515fb8c3, type: 3}
       propertyPath: m_Name
       value: SettingsPanel
+      objectReference: {fileID: 0}
+    - target: {fileID: 8151843293042755739, guid: 4ed46c93dccbb734ab3107e2515fb8c3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8581705839941610487, guid: 4ed46c93dccbb734ab3107e2515fb8c3, type: 3}
       propertyPath: m_Pivot.x
@@ -2050,20 +2078,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4ed46c93dccbb734ab3107e2515fb8c3, type: 3}
---- !u!114 &1522518440
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1522518435}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43e062e4aa6f10147aa5ab5115593e50, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MainMenu
-  mainMenuPanel: {fileID: 299398859}
-  settingsPanel: {fileID: 1480084451}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
