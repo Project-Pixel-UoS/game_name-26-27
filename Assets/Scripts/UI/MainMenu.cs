@@ -1,14 +1,17 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
+/// <summary>
+/// Exposes functionality for the main menu buttons
+/// </summary>
 public class MainMenu : MonoBehaviour
 {
+    [SerializeField] private SceneTransition playSceneTransition;
     [SerializeField] private GameObject mainMenuPanel;
     [SerializeField] private GameObject settingsPanel;
 
     public void Play()
     {
-        SceneManager.LoadScene("Scene 1");
+        playSceneTransition.TransitionScene();
     }
 
     public void Settings()
@@ -21,7 +24,7 @@ public class MainMenu : MonoBehaviour
     {
         Application.Quit();
 
-        //Exit play mode in the editor
+        // Exit play mode in the editor
         #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
         #endif
