@@ -2086,7 +2086,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43e062e4aa6f10147aa5ab5115593e50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MainMenu
-  sceneTransition: {fileID: 1386861604}
   mainMenuPanel: {fileID: 299398859}
   settingsPanel: {fileID: 1721582371}
 --- !u!1 &1721582371 stripped
@@ -2451,6 +2450,10 @@ PrefabInstance:
       propertyPath: m_fontColor32.rgba
       value: 4281754727
       objectReference: {fileID: 0}
+    - target: {fileID: 7339956849206419998, guid: 4ed46c93dccbb734ab3107e2515fb8c3, type: 3}
+      propertyPath: previousPanel
+      value: 
+      objectReference: {fileID: 299398859}
     - target: {fileID: 7622127486744869317, guid: 4ed46c93dccbb734ab3107e2515fb8c3, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
@@ -2545,7 +2548,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8581705839941610487, guid: 4ed46c93dccbb734ab3107e2515fb8c3, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.000061035156
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8581705839941610487, guid: 4ed46c93dccbb734ab3107e2515fb8c3, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
