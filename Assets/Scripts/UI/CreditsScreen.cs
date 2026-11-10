@@ -16,6 +16,6 @@ public class CreditsScreen : MonoBehaviour
     /// </summary>
     public void BackToMainMenu()
     {
-        SceneManager.LoadScene("Main Menu");
+        SceneTransition.instance.TransitionScene("Main Menu");
     }
 }
