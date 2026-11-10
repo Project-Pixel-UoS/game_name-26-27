@@ -5,13 +5,12 @@ using UnityEngine;
 /// </summary>
 public class MainMenu : MonoBehaviour
 {
-    [SerializeField] private SceneTransition playSceneTransition;
     [SerializeField] private GameObject mainMenuPanel;
     [SerializeField] private GameObject settingsPanel;
 
     public void Play()
     {
-        playSceneTransition.TransitionScene();
+        SceneTransition.instance.TransitionScene("Scene 1");
     }
 
     public void Settings()
@@ -28,5 +27,11 @@ public class MainMenu : MonoBehaviour
         #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
         #endif
+    }
+
+    public void Credits()
+    {
+        //Transitions to credit scene
+        SceneTransition.instance.TransitionScene("Credits");
     }
 }

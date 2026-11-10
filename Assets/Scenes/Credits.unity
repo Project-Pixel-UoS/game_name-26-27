@@ -268,6 +268,7 @@ GameObject:
   - component: {fileID: 434700689}
   - component: {fileID: 434700688}
   - component: {fileID: 434700687}
+  - component: {fileID: 434700691}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -360,6 +361,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &434700691
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 434700686}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23bedf28465fec448ae135d4db89967c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CreditsScreen
+  sceneTransition: {fileID: 0}
 --- !u!1 &482495819
 GameObject:
   m_ObjectHideFlags: 0
@@ -412,6 +426,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23bedf28465fec448ae135d4db89967c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CreditsScreen
+  sceneTransition: {fileID: 0}
 --- !u!114 &482495822
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -953,7 +968,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 51.6
+  m_fontSize: 72
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1

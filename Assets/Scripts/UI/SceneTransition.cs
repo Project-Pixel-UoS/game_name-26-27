@@ -45,6 +45,14 @@ public class SceneTransition : MonoBehaviour
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
+    private void OnDestroy()
+    {
+        if (instance == this)
+        {
+            SceneManager.sceneLoaded -= OnSceneLoaded;
+        }
+    }
+
     /// <summary>
     /// Begin fade in on new scene load
     /// </summary>
@@ -80,9 +88,12 @@ public class SceneTransition : MonoBehaviour
     /// <summary>
     /// public method to be triggered by button press that triggers fade if target
     /// scene is present.
+    /// Accepts the target scene as a parameter
     /// </summary>
-    public void TransitionScene()
+
+    public void TransitionScene(string target)
     {
+        transitionTarget = target;
         Debug.Log("Transition Called");
 
         // Check scene is in build profiles
@@ -90,7 +101,7 @@ public class SceneTransition : MonoBehaviour
         {
             Debug.LogWarning("There is no Scene with the name " + transitionTarget + " in the build profile");
             // Do not fade out if there is no scene
-            return; 
+            return;
         }
 
         FadeOut();
