@@ -19,6 +19,12 @@ public class MainMenu : MonoBehaviour
         settingsPanel.SetActive(true);
     }
 
+    public void CloseSettings()
+    {
+        settingsPanel.SetActive(false);
+        mainMenuPanel.SetActive(true);
+    }
+
     public void Quit()
     {
         Application.Quit();

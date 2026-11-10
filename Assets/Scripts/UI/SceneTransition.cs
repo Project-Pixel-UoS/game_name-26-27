@@ -45,14 +45,6 @@ public class SceneTransition : MonoBehaviour
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
-    private void OnDestroy()
-    {
-        if (instance == this)
-        {
-            SceneManager.sceneLoaded -= OnSceneLoaded;
-        }
-    }
-
     /// <summary>
     /// Begin fade in on new scene load
     /// </summary>

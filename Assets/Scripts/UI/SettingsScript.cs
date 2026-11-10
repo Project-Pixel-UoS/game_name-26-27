@@ -15,6 +15,8 @@ public class SettingsScript : MonoBehaviour
     public Slider sFXSlider;
     public Slider masterSlider;
 
+    [SerializeField] private GameObject previousPanel;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -71,6 +73,7 @@ public class SettingsScript : MonoBehaviour
     public void CloseSettings()
     {
         gameObject.SetActive(false);
+        previousPanel.SetActive(true);
     }
 
 }
