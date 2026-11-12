@@ -1280,7 +1280,7 @@ PrefabInstance:
       objectReference: {fileID: 7009502046522143813}
     - target: {fileID: -146313799566070101, guid: ccad103ded9175a47800edb52fbb6fd7, type: 3}
       propertyPath: actionDelay
-      value: 2
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 801246673275929148, guid: ccad103ded9175a47800edb52fbb6fd7, type: 3}
       propertyPath: m_text

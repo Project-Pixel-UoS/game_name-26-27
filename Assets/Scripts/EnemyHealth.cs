@@ -3,8 +3,11 @@ using TMPro;
 using UnityEngine;
 
 /// <summary>
-///
+/// This script manages enemy health, damage, defence functionality. 
+/// HP and DEF stats are also displayed on the enemy.
+/// Before any changes are made to HP/DEF, a delay occurs to allow for transition/animation time. 
 /// </summary>
+
 /// <remarks>
 /// Maintained by: Ayaan H
 /// </remarks>
@@ -18,15 +21,17 @@ public class EnemyHealth : MonoBehaviour
     private int defence;
     private bool isDead;
 
+    /// <summary>
+    /// Set current health to maximum specified health (can be changed) and displays used UpdateDisplay().
+    /// </summary>
     private void Start()
     {
         currentHealth = maxHealth;
-        Debug.Log("Current health: " + currentHealth);
         UpdateDisplay();
     }
 
     /// <summary>
-    ///
+    /// TakeDamage calls the routine which includes a delay.
     /// </summary>
     public void TakeDamage(int amount)
     {
@@ -34,7 +39,9 @@ public class EnemyHealth : MonoBehaviour
     }
 
     /// <summary>
-    ///
+    /// This coroutine applies damage to an enemy by first applying damage to defence.
+    /// Remaining damage is then dealt directly to the enemy's health.
+    /// If the enemy's health is below 0, the enemy is dead, so its game object is deleted.
     /// </summary>
     private IEnumerator TakeDamageRoutine(int amount)
     {
@@ -44,7 +51,6 @@ public class EnemyHealth : MonoBehaviour
         int absorbed = Mathf.Min(defence, amount);
         defence -= absorbed;
         currentHealth -= amount - absorbed;
-        Debug.Log("Current health: " + currentHealth + " Defence: " + defence);
         UpdateDisplay();
 
         if (currentHealth<=0)
@@ -54,7 +60,7 @@ public class EnemyHealth : MonoBehaviour
     }
 
     /// <summary>
-    ///
+    /// Heal() calls the coroutine for healing which includes its delay. 
     /// </summary>
     public void Heal(int amount)
     {
@@ -62,7 +68,8 @@ public class EnemyHealth : MonoBehaviour
     }
 
     /// <summary>
-    ///
+    /// This coroutine adds the specified health to the current health of the enemy.
+    /// If that exceeds the enemy's original max health, the current health is set to that max health amount.
     /// </summary>
     private IEnumerator HealRoutine(int amount)
     {
@@ -77,12 +84,11 @@ public class EnemyHealth : MonoBehaviour
         {
             currentHealth += amount;
         }
-        Debug.Log("Current health: " + currentHealth);
         UpdateDisplay();
     }
 
     /// <summary>
-    ///
+    /// AddDefence() calls the defence coroutine.
     /// </summary>
     public void AddDefence(int amount)
     {
@@ -90,20 +96,19 @@ public class EnemyHealth : MonoBehaviour
     }
 
     /// <summary>
-    ///
+    /// Defence is added to the enemy and then displayed
     /// </summary>
     private IEnumerator AddDefenceRoutine(int amount)
     {
         yield return new WaitForSeconds(actionDelay);
         if (isDead) yield break;
-
         defence += amount;
-        Debug.Log("Defence: " + defence);
         UpdateDisplay();
     }
 
     /// <summary>
-    ///
+    /// Called after the change in every function except for Die(). 
+    /// Displays the new HP/DEF stats of the enemy.
     /// </summary>
     private void UpdateDisplay()
     {
@@ -111,12 +116,11 @@ public class EnemyHealth : MonoBehaviour
     }
 
     /// <summary>
-    ///
+    /// Destroys the enemy GameObject. 
     /// </summary>
     private void Die()
     {
         isDead = true;
-        Debug.Log(gameObject.name + " Enemy has died");
         Destroy(gameObject);
     }
 }
