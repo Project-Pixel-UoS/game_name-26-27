@@ -27,7 +27,25 @@ public class RoomManager : MonoBehaviour
         else
         {
             instance = this;
+            Create();
         }
+    }
+
+    /// <summary>
+    /// Load initial level and debug
+    /// </summary>
+    private void Create()
+    {
+        LoadNextRoom();
+        RoomLog();
+    }
+
+    /// <summary>
+    /// Print out Debug information
+    /// </summary>
+    private void RoomLog()
+    {
+        Debug.Log("Room " + roomCounter + " Loaded. Of type " + roomData.getRoomType());
     }
 
     /// <summary>
@@ -36,6 +54,7 @@ public class RoomManager : MonoBehaviour
     private void LoadNextRoom()
     {
         // I don't know how to fetch a scriptable object?
+        // Log the room type
     }
 
     /// <summary>
@@ -55,6 +74,7 @@ public class RoomManager : MonoBehaviour
         {
             roomCounter++;
             LoadNextRoom();
+            RoomLog();
             isCompleted = false;
         }
     }

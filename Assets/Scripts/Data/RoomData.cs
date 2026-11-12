@@ -16,9 +16,18 @@ public class RoomData : ScriptableObject
     public GameObject[] spawnOptions;
 
     public RoomType roomType;
+
+    public string getRoomType()
+    {
+
+        string type = roomType.ToString();
+        return type;
+    }
 }
 
-
+/// <summary>
+/// an enum for different types of room
+/// </summary>
 public enum RoomType
 {
     HEALING,
