@@ -14,4 +14,13 @@ using UnityEngine;
 public class RoomData : ScriptableObject
 {
     public GameObject[] spawnOptions;
+
+    public RoomType roomType;
+}
+
+
+public enum RoomType
+{
+    HEALING,
+    COMBAT
 }
