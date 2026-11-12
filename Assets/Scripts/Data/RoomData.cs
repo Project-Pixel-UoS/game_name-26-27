@@ -2,7 +2,7 @@ using UnityEngine;
 
 [CreateAssetMenu(fileName = "RoomData", menuName = "Scriptable Objects/RoomData")]
 
-// Files should be named to be "Room1" or "Room2"
+// Files should be named to be "Room1" or "Room2" and so on
 
 
 /// <summary>

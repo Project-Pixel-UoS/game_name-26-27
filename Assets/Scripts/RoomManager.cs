@@ -1,11 +1,17 @@
 using Unity.VisualScripting;
 using UnityEngine;
 
+/// <summary>
+/// A singleton to control the state and loading of rooms
+/// </summary>
+/// <remarks>
+/// Maintained by: Bailey Stewart
+/// </remarks>
 public class RoomManager : MonoBehaviour
 {
     public static RoomManager instance { get; private set; }
 
-    private int roomCounter;
+    public int roomCounter { get; private set; } = 1;
     private RoomData roomData;
     private bool isCompleted = false;
 
@@ -29,7 +35,7 @@ public class RoomManager : MonoBehaviour
     /// </summary>
     private void LoadNextRoom()
     {
-
+        // I don't know how to fetch a scriptable object?
     }
 
     /// <summary>
@@ -49,6 +55,7 @@ public class RoomManager : MonoBehaviour
         {
             roomCounter++;
             LoadNextRoom();
+            isCompleted = false;
         }
     }
 
