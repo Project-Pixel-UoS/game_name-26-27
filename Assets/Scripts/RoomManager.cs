@@ -96,8 +96,8 @@ public class RoomManager : MonoBehaviour
             // Unload the current prefab then proceed
 
             roomCounter++;
-            LoadNextRoom();
             isCompleted = false;
+            LoadNextRoom();
         }
     }
 

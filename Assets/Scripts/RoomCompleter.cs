@@ -16,15 +16,23 @@ public class RoomCompleter : MonoBehaviour
 
     public event System.Action OnAllEnemiesKilled;
 
+    /// <summary>
+    /// Called by the Complete Room Button
+    /// </summary>
     public void CompleteRoom()
     {
         // Toggle Buttons
         completeRoom.gameObject.SetActive(false);
         nextRoom.gameObject.SetActive(true);
 
+        // Listened to by Room Manager to set room state
         OnAllEnemiesKilled.Invoke();
     }
 
+    /// <summary>
+    /// Called by the Next Room button.
+    /// Triggers the loading of the next room.
+    /// </summary>
     public void NextRoom()
     {
         // Toggle buttons
