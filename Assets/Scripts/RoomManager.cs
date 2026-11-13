@@ -119,7 +119,11 @@ public class RoomManager : MonoBehaviour
 
     private void SpawnEnemies()
     {
-        // IDK 
+        foreach (GameObject enemyPrefab in roomData.enemyTypes)
+        {
+            GameObject enemy = Instantiate(enemyPrefab);
+            enemy.transform.SetParent(roomPrefab.transform);
+        }
     }
 
     /// <summary>

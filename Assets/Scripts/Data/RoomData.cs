@@ -13,8 +13,7 @@ using UnityEngine;
 /// </remarks>
 public class RoomData : ScriptableObject
 {
-    public GameObject[] spawnOptions;
-
+    public GameObject[] enemyTypes = new GameObject[0];
     public RoomType roomType;
 
     public string getRoomType()
