@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 3234114018358822427}
   - component: {fileID: 8976661057346382089}
   - component: {fileID: 8896930328484789460}
-  - component: {fileID: 883380841337710673}
   m_Layer: 5
   m_Name: CardRewardPanelButton
   m_TagString: Untagged
@@ -122,7 +121,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 883380841337710673}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: PanelControlller, Assembly-CSharp
         m_MethodName: OpenPanel
         m_Mode: 1
@@ -134,20 +133,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &883380841337710673
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2720233578508834752}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 600871b306f4ba64fba5857002f895b6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
-  panel: {fileID: 0}
-  button: {fileID: 2720233578508834752}
 --- !u!1 &6585587890295896175
 GameObject:
   m_ObjectHideFlags: 0
