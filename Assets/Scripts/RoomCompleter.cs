@@ -14,6 +14,7 @@ public class RoomCompleter : MonoBehaviour
     [SerializeField] private Button completeRoom;
     [SerializeField] private Button nextRoom;
 
+    public event System.Action OnAllEnemiesKilled;
 
     public void CompleteRoom()
     {
@@ -21,9 +22,7 @@ public class RoomCompleter : MonoBehaviour
         completeRoom.gameObject.SetActive(false);
         nextRoom.gameObject.SetActive(true);
 
-
-        RoomManager.instance.SetComplete(true);
-
+        OnAllEnemiesKilled.Invoke();
     }
 
     public void NextRoom()

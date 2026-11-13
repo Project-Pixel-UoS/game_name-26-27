@@ -19,7 +19,6 @@ public class RoomData : ScriptableObject
 
     public string getRoomType()
     {
-
         string type = roomType.ToString();
         return type;
     }
