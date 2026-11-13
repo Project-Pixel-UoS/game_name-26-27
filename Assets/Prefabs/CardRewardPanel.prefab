@@ -565,6 +565,7 @@ GameObject:
   - component: {fileID: 4318793753085263224}
   - component: {fileID: 1517704710389611522}
   - component: {fileID: 6348659465144809251}
+  - component: {fileID: 7049317595316235477}
   m_Layer: 5
   m_Name: CardRewardPanel
   m_TagString: Untagged
@@ -633,6 +634,18 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &7049317595316235477
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8130801726299750838}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e36defc3ba6e39e4a8129610eebca0ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
 --- !u!1 &8162405866950514533
 GameObject:
   m_ObjectHideFlags: 0
@@ -830,9 +843,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3075368878337667063, guid: 243b6b1e45557af40b956a4bec1b26e8, type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3123573295385379398, guid: 243b6b1e45557af40b956a4bec1b26e8, type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3655631171106493248, guid: 243b6b1e45557af40b956a4bec1b26e8, type: 3}
       propertyPath: m_Name
       value: BattleCard (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8438446618968153082, guid: 243b6b1e45557af40b956a4bec1b26e8, type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -904,9 +929,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3075368878337667063, guid: 243b6b1e45557af40b956a4bec1b26e8, type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3123573295385379398, guid: 243b6b1e45557af40b956a4bec1b26e8, type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3655631171106493248, guid: 243b6b1e45557af40b956a4bec1b26e8, type: 3}
       propertyPath: m_Name
       value: BattleCard (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8438446618968153082, guid: 243b6b1e45557af40b956a4bec1b26e8, type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -978,9 +1015,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3075368878337667063, guid: 243b6b1e45557af40b956a4bec1b26e8, type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3123573295385379398, guid: 243b6b1e45557af40b956a4bec1b26e8, type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3655631171106493248, guid: 243b6b1e45557af40b956a4bec1b26e8, type: 3}
       propertyPath: m_Name
       value: BattleCard (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8438446618968153082, guid: 243b6b1e45557af40b956a4bec1b26e8, type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
