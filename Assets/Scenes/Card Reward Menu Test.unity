@@ -124,6 +124,25 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 4318793753085263224, guid: beb77b96bb90fc04b89f23bb34641472, type: 3}
   m_PrefabInstance: {fileID: 1841751623378942470}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &696696586 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3703337526639843147, guid: beb77b96bb90fc04b89f23bb34641472, type: 3}
+  m_PrefabInstance: {fileID: 1841751623378942470}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &696696591
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 696696586}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 600871b306f4ba64fba5857002f895b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PanelControlller
+  panel: {fileID: 1841751623378942471}
+  button: {fileID: 696696586}
 --- !u!1 &757056636
 GameObject:
   m_ObjectHideFlags: 0
@@ -536,6 +555,34 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5241914004490520716, guid: beb77b96bb90fc04b89f23bb34641472, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5241914004490520716, guid: beb77b96bb90fc04b89f23bb34641472, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5241914004490520716, guid: beb77b96bb90fc04b89f23bb34641472, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 696696591}
+    - target: {fileID: 5241914004490520716, guid: beb77b96bb90fc04b89f23bb34641472, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5241914004490520716, guid: beb77b96bb90fc04b89f23bb34641472, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ClosePanel
+      objectReference: {fileID: 0}
+    - target: {fileID: 5241914004490520716, guid: beb77b96bb90fc04b89f23bb34641472, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: PanelControlller, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5241914004490520716, guid: beb77b96bb90fc04b89f23bb34641472, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 8130801726299750838, guid: beb77b96bb90fc04b89f23bb34641472, type: 3}
       propertyPath: m_Name
       value: CardRewardPanel
@@ -548,7 +595,10 @@ PrefabInstance:
     m_RemovedGameObjects:
     - {fileID: 330727523054919461, guid: beb77b96bb90fc04b89f23bb34641472, type: 3}
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3703337526639843147, guid: beb77b96bb90fc04b89f23bb34641472, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 696696591}
   m_SourcePrefab: {fileID: 100100000, guid: beb77b96bb90fc04b89f23bb34641472, type: 3}
 --- !u!1 &1841751623378942471 stripped
 GameObject:
