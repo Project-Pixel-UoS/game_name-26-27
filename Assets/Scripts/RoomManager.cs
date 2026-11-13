@@ -1,4 +1,6 @@
+using System.IO;
 using Unity.VisualScripting;
+using UnityEditor.PackageManager;
 using UnityEngine;
 
 /// <summary>
@@ -37,7 +39,6 @@ public class RoomManager : MonoBehaviour
     private void Create()
     {
         LoadNextRoom();
-        RoomLog();
     }
 
     /// <summary>
@@ -45,7 +46,7 @@ public class RoomManager : MonoBehaviour
     /// </summary>
     private void RoomLog()
     {
-        Debug.Log("Room " + roomCounter + " Loaded. Of type " + roomData.getRoomType());
+        Debug.Log("Room " + roomCounter + " Loaded of type " + roomData.getRoomType());
     }
 
     /// <summary>
@@ -53,16 +54,28 @@ public class RoomManager : MonoBehaviour
     /// </summary>
     private void LoadNextRoom()
     {
-        // I don't know how to fetch a scriptable object?
-        // Log the room type
+        var room = Resources.Load("Objects/Rooms/Room" + roomCounter);
+
+        if (room == null)
+        {
+            Debug.LogWarning("No file found for room number " + roomCounter + ". Failed to load level.");
+            return;
+        }
+
+        roomData = (RoomData) room;
+        RoomLog();
     }
 
     /// <summary>
-    /// Tempory function to complete the room immediately as there are no enemies
+    /// setter function for the isCompleted variable.
     /// </summary>
-    public void CompleteRoom()
+    /// <param name="state">state to be set.</param>
+    public void SetComplete(bool state)
     {
-        isCompleted = true;
+        // Could be changed in future to check for no enemies and set true once all dead?
+        // Although maybe this is the job of enemy controller
+
+        isCompleted = state;
     }
 
     /// <summary>
@@ -74,7 +87,6 @@ public class RoomManager : MonoBehaviour
         {
             roomCounter++;
             LoadNextRoom();
-            RoomLog();
             isCompleted = false;
         }
     }

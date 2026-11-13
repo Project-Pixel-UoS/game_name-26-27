@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Room1
   m_EditorClassIdentifier: Assembly-CSharp::RoomData
   spawnOptions: []
-  roomType: 0
+  roomType: 1
