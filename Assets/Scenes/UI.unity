@@ -758,7 +758,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 782992637}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1843688598}
+        m_TargetAssemblyTypeName: HUDScript, Assembly-CSharp
+        m_MethodName: FuseButtonClicked
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &782992637
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2021,6 +2033,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   pausemenu: {fileID: 2126172520}
+  healthBar: {fileID: 1246454877}
 --- !u!1 &2045529450
 GameObject:
   m_ObjectHideFlags: 0
