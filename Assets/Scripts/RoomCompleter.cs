@@ -26,7 +26,7 @@ public class RoomCompleter : MonoBehaviour
         nextRoom.gameObject.SetActive(true);
 
         // Listened to by Room Manager to set room state
-        OnAllEnemiesKilled.Invoke();
+        OnAllEnemiesKilled.Invoke(); 
     }
 
     /// <summary>

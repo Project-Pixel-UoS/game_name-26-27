@@ -1,4 +1,5 @@
 using System.IO;
+using System.Security.Cryptography;
 using Unity.VisualScripting;
 using UnityEditor.PackageManager;
 using UnityEngine;
@@ -13,11 +14,13 @@ public class RoomManager : MonoBehaviour
 {
     public static RoomManager instance { get; private set; }
     public int roomCounter { get; private set; } = 1;
-
-    [SerializeField] private RoomCompleter UIManager;
-    private RoomData roomData;
     public bool isCompleted { get; private set; } = false;
 
+
+    [SerializeField] private RoomToPrefab[] mappingList;
+    [SerializeField] private RoomCompleter UIManager;
+    private RoomData roomData;
+    private GameObject roomPrefab;
     /// <summary>
     /// setter function for the isCompleted variable.
     /// </summary>
@@ -54,17 +57,26 @@ public class RoomManager : MonoBehaviour
     private void LoadNextRoom()
     {
         LoadScriptableRoomObject();
-        // Load the respective room type prefab
-        // Then load the enemies as children
 
-        // Debug
         if (roomData != null)
         {
-            Debug.Log("Room " + roomCounter + " Loaded of type " + roomData.getRoomType());
+            bool prefabLoaded = LoadPrefabRoom();
+
+            if (prefabLoaded == false)
+            {
+                return;
+            }
+
+            SpawnEnemies();
+
+            if (prefabLoaded)
+            {
+                Debug.Log("Room " + roomCounter + " Loaded of type " + roomData.getRoomType());
+            } 
         }
         else
         {
-            Debug.Log("No room loaded");
+            Debug.Log("No room data loaded");
         }
     }
 
@@ -75,7 +87,7 @@ public class RoomManager : MonoBehaviour
     /// </summary>
     private void LoadScriptableRoomObject()
     {
-        var room = Resources.Load("Objects/Rooms/Room" + roomCounter);
+        var room = Resources.Load<RoomData>("Objects/Rooms/Room" + roomCounter);
 
         if (room == null)
         {
@@ -83,7 +95,31 @@ public class RoomManager : MonoBehaviour
             return;
         }
 
-        roomData = (RoomData)room;
+        roomData = room;
+    }
+
+    private bool LoadPrefabRoom()
+    {
+        // Load Correct prefab
+        string name = roomData.getRoomType();
+
+        foreach (RoomToPrefab mapping in mappingList)
+        {
+            if (mapping.type.ToString() == name)
+            {
+                roomPrefab = Instantiate(mapping.prefab);
+                return true;
+            }
+        }
+        
+        Debug.LogWarning(roomData.getRoomType() + " Does not have an associated prefab, cannot load.");
+        return false;
+        
+    }
+
+    private void SpawnEnemies()
+    {
+        // IDK 
     }
 
     /// <summary>
@@ -93,12 +129,18 @@ public class RoomManager : MonoBehaviour
     {
         if (isCompleted)
         {
-            // Unload the current prefab then proceed
-
+            Destroy(roomPrefab);
             roomCounter++;
             isCompleted = false;
             LoadNextRoom();
         }
     }
 
+}
+
+[System.Serializable]
+public struct RoomToPrefab
+{
+    public RoomType type;
+    public GameObject prefab;
 }
