@@ -5,6 +5,9 @@ public class PanelControlller : MonoBehaviour
     [SerializeField] GameObject panel;
     [SerializeField] GameObject button;
 
+    /// <summary>
+    /// Activates panel and hides button if supplied
+    /// </summary>
     public void OpenPanel()
     {
         // Makes sure that there is a panel
@@ -20,6 +23,9 @@ public class PanelControlller : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Deactivates panel
+    /// </summary>
     public void ClosePanel()
     {
         if (panel != null)
