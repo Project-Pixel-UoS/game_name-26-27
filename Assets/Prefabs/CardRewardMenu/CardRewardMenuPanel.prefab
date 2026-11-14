@@ -209,6 +209,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -150
       objectReference: {fileID: 0}
+    - target: {fileID: 7049317595316235477, guid: beb77b96bb90fc04b89f23bb34641472, type: 3}
+      propertyPath: cardRewardPanelButton
+      value: 
+      objectReference: {fileID: 1912243718680375294}
     - target: {fileID: 8130801726299750838, guid: beb77b96bb90fc04b89f23bb34641472, type: 3}
       propertyPath: m_Name
       value: CardRewardPanel
@@ -372,6 +376,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5206871beea9342498bda251bd17203c, type: 3}
+--- !u!114 &1912243718680375294 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8896930328484789460, guid: 5206871beea9342498bda251bd17203c, type: 3}
+  m_PrefabInstance: {fileID: 7057590837031883562}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4913901631693489386}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
 --- !u!1 &4913901631693489386 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2720233578508834752, guid: 5206871beea9342498bda251bd17203c, type: 3}
