@@ -40,7 +40,7 @@ public class DisplayCardData : MonoBehaviour
         SetBackgroundColour();
     }
 
-    private void SetBackGroundColour()
+    private void SetBackgroundColour()
     {
         switch (displayedData.effectType)
         {

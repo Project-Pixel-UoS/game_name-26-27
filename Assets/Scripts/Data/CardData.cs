@@ -11,14 +11,14 @@ using UnityEngine;
 /// </remarks>
 public class CardData : ScriptableObject
 {
-    public string cardName {get; private set;} //The name of the card
-    public string cardDescription {get; private set;} //The description of the card
-    public Sprite cardImage {get; private set;} //The image of the card
+    public string cardName; //The name of the card
+    public string cardDescription; //The description of the card
+    public Sprite cardImage; //The image of the card
 
-    public int EnergyCost {get; private set;} //The energy cost of the card
+    public int EnergyCost; //The energy cost of the card
 
     public CardEffectType effectType; //What the card does (Heal, Attack, Defend a)
-    public int effectValue {get; private set;} //Value of the Card's effect (Heal 2 HP, Attack for 5 damage, etc.)
+    public int effectValue; //Value of the Card's effect (Heal 2 HP, Attack for 5 damage, etc.)
 
 }
 

@@ -12,4 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13c88c2adfa6fb848986d6a69959620f, type: 3}
   m_Name: DefendCard
   m_EditorClassIdentifier: Assembly-CSharp::CardData
+  cardName: 
+  cardDescription: 
+  cardImage: {fileID: 0}
+  EnergyCost: 0
   effectType: 0
+  effectValue: 0
