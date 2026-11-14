@@ -8,19 +8,17 @@ public class CardRewardMenu : MonoBehaviour
     [SerializeField] Button confirmationButton;
     // The button that opens the card reward panel
     [SerializeField] Button cardRewardPanelButton;
-    // Only the cards wrapper is linked, not the card itself
-    [SerializeField] GameObject cardOption1, cardOption2, cardOption3;
-    // Stores cards in an array for ease of access
-    private GameObject[] cardOptions;
     private const int NUMBER_OF_OPTIONS = 3;
 
+    // Stores cards in an array for ease of access, Only wrapper containing the card prefab is added to array
+    public GameObject[] cardOptions = new GameObject[NUMBER_OF_OPTIONS];
+    
     /// <summary>
     /// Loads the listeners and asigns the cards to cardOptions array
     /// </summary>
     void Awake()
     {
         confirmationButton.onClick.AddListener(confirmChoice);
-        cardOptions = new GameObject[NUMBER_OF_OPTIONS]{cardOption1, cardOption2, cardOption3};
     }
     
     /// <summary>

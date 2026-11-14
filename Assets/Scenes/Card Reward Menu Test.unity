@@ -485,6 +485,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6549164749006482256, guid: ccee6973a8fcac14fbd6b4669e937bfa, type: 3}
+      propertyPath: cardOptions.Array.size
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8419151195934270615, guid: ccee6973a8fcac14fbd6b4669e937bfa, type: 3}
       propertyPath: m_Name
       value: CardRewardMenuPanel

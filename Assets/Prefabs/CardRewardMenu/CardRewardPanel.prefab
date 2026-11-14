@@ -1131,11 +1131,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e36defc3ba6e39e4a8129610eebca0ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  confirmationButton: {fileID: 8290240454129263018}
   cardRewardPanel: {fileID: 8130801726299750838}
-  cardOption1: {fileID: 6176377774466210332}
-  cardOption2: {fileID: 7510808394973844311}
-  cardOption3: {fileID: 838719549457547573}
+  confirmationButton: {fileID: 8290240454129263018}
+  cardRewardPanelButton: {fileID: 0}
+  cardOptions:
+  - {fileID: 6176377774466210332}
+  - {fileID: 7510808394973844311}
+  - {fileID: 838719549457547573}
 --- !u!1 &8162405866950514533
 GameObject:
   m_ObjectHideFlags: 0
