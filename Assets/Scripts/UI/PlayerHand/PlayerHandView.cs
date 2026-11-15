@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -22,11 +21,6 @@ public class PlayerHandView : MonoBehaviour
     /// To select a card, see `SelectCard()`
     /// </summary>
     public PlayerHandCardView SelectedCard { get; private set; }
-
-    /// <summary>
-    /// Fires whenever the currently selected card changes.
-    /// </summary>
-    public event Action<PlayerHandCardView> SelectedCardChanged;
 
     private void Awake()
     {
@@ -99,7 +93,6 @@ public class PlayerHandView : MonoBehaviour
             SelectedCard.UpdateSelectionVisual(true);
             
         UpdateSelectedCardUI();
-        SelectedCardChanged?.Invoke(SelectedCard);
     }
 
     private void Register(PlayerHandCardView card)
