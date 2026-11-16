@@ -48,8 +48,8 @@ public class SceneTransition : MonoBehaviour
     /// <summary>
     /// Begin fade in on new scene load
     /// </summary>
-    /// <param name="scene"></param> not used
-    /// <param name="mode"></param> not used
+    /// <param name="scene">not used</param> 
+    /// <param name="mode">not used</param> 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         // Prevents function being called on initial scene load
