@@ -1,5 +1,6 @@
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 /// <summary>
 /// This class is a MonoBehaviour script to read data from a
@@ -16,7 +17,7 @@ public class DisplayCardData : MonoBehaviour
     private TMP_Text cardDescription;
     private TMP_Text energyCost;
     private TMP_Text effectValue;
-    private SpriteRenderer backgroundColour;
+    private Image cardBackground;
 
     /// <summary>
     /// Gets a reference to each part of the card to change.
@@ -28,7 +29,7 @@ public class DisplayCardData : MonoBehaviour
         cardDescription = transform.Find("Wrapper/Description").GetComponent<TMP_Text>();
         energyCost = transform.Find("Wrapper/Energy Cost").GetComponent<TMP_Text>();
         effectValue = transform.Find("Wrapper/Effect Value").GetComponent<TMP_Text>();
-        backgroundColour = transform.Find("Wrapper/CardBackground").GetComponent<SpriteRenderer>();
+        cardBackground = transform.Find("Wrapper/CardBackground").GetComponent<Image>();
     }
 
     /// <summary>
@@ -60,16 +61,16 @@ public class DisplayCardData : MonoBehaviour
         switch (displayedData.effectType)
         {
             case CardEffectType.Heal:
-                backgroundColour.color = Color.green;
+                cardBackground.color = Color.green;
             break;
             case CardEffectType.Attack:
-                backgroundColour.color = Color.red;
+                cardBackground.color = Color.red;
             break;
             case CardEffectType.Defend:
-                backgroundColour.color = Color.blue;
+                cardBackground.color = Color.blue;
             break;
             case CardEffectType.Spirit:
-                backgroundColour.color = Color.yellow;
+                cardBackground.color = Color.yellow;
             break;
         }
     }
