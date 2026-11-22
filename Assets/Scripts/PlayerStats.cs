@@ -13,12 +13,18 @@ using UnityEngine.SceneManagement;
 /// </remarks>
 public class PlayerStats : MonoBehaviour
 {
-    private double currentHealth = 100;
+    public double currentHealth = 100;
+    public double GetCurrentHealth() {  return currentHealth; }
     private double maxHealth = 100;
+    public double GetMaxHealth() { return maxHealth; }
     private int currentEnergy = 3;
+    public int GetCurrentEnergy() { return currentEnergy; }
     private int maxEnergy = 3;
+    public int GetMaxEnergy() { return currentEnergy; }
     private double currentDefence = 0;
-    private double currentMoney;
+    public double GetCurrentDefence() {  return currentDefence; }
+    private double currentMoney = 1000;
+    public double GetCurrentMoney() { return currentMoney; }
     [SerializeField]private List<GameObject> cards = new List<GameObject>();
     [SerializeField]private GameObject ui;
 
@@ -40,7 +46,7 @@ public class PlayerStats : MonoBehaviour
     /// </summary>
     /// <param name="healthAdd"> The amount of health to be added to the player. 
     /// (Use negqtive values to decrease the health)<param>
-    void UpdateCurrentHealth(double healthAdd)
+    public void UpdateCurrentHealth(double healthAdd)
     {
         this.currentHealth += healthAdd;
         if (this.currentHealth > maxHealth)
@@ -62,10 +68,12 @@ public class PlayerStats : MonoBehaviour
     /// </summary>
     /// <param name="maxhealthIncrement">Specifies the amount of health to be added to the max health.
     /// (Use negative values to decrease health by specified value)</param>
-    void UpdateMaxHealth(double maxhealthIncrement)
+    public void UpdateMaxHealth(double maxhealthIncrement)
     {
+        double maxhealthBefore = this.GetMaxHealth();
         this.maxHealth += maxhealthIncrement;
-        UpdateCurrentHealth(this.currentHealth);
+        double maxhealthAfter = this.GetMaxHealth();
+        UpdateCurrentHealth((maxhealthAfter - maxhealthBefore));
         UpDateUI();
     }
 
@@ -88,12 +96,16 @@ public class PlayerStats : MonoBehaviour
     /// Make sure to call the HasEnergy() function to check if the user has enough energy to spend
     /// </summary>
     /// <param name="energyIncrement">Specifies the amount of energy to be added. </param>
-    void SetEnergy(int energyIncrement)
+    public void UpdateCurrentEnergy(int energyIncrement)
     {
         this.currentEnergy += energyIncrement;
         if (this.currentEnergy > maxEnergy)
         {
             this.currentEnergy = maxEnergy;
+        }
+        else if (this.currentEnergy < 0)
+        {
+            this.currentEnergy = 0;
         }
         UpDateUI();
     }
@@ -103,7 +115,7 @@ public class PlayerStats : MonoBehaviour
     /// </summary>
     /// <param name="energyCost"> Specifies the energy cost of the action </param>
     /// <returns> True if the user has energy to spend and false if they don't </returns>
-    bool HasEnergy(int energyCost)
+    public bool HasEnergy(int energyCost)
     {
         if ((this.currentEnergy -= energyCost) < 0)
         {
@@ -113,19 +125,11 @@ public class PlayerStats : MonoBehaviour
     }
 
     /// <summary>
-    /// Resets the current energy by setting it to the maximum energy
-    /// </summary>
-    void ResetCurrentEnergy()
-    {
-        this.currentEnergy = maxEnergy;
-    }
-
-    /// <summary>
     /// Method to add to Max energy.
     /// (Use negative values to decrease Max energy)
     /// </summary>
     /// <param name="maxEnergyIncrement">Specifes the amount of energy to be added to the player's </param>
-    void SetMaxEnergy(int maxEnergyIncrement)
+    public void UpdateMaxEnergy(int maxEnergyIncrement)
     {
         this.maxEnergy += maxEnergyIncrement;
         if (this.maxEnergy < 0)
@@ -136,12 +140,21 @@ public class PlayerStats : MonoBehaviour
     }
 
     /// <summary>
+    /// Method to reset the current energy to default (3)
+    /// </summary>
+    public void ResetCurrentEnergy()
+    {
+        this.currentEnergy = 3;
+        UpDateUI();
+    }
+
+    /// <summary>
     /// Method to reset Max energy to default (3)
     /// </summary>
-    void ResetMaxEnergy()
+    public void ResetMaxEnergy()
     {
         this.maxEnergy = 3;
-        SetEnergy(this.currentEnergy);
+        UpdateCurrentEnergy(this.currentEnergy);
     }
 
     /// <summary>
@@ -149,7 +162,7 @@ public class PlayerStats : MonoBehaviour
     /// (Use negative values to decrease the defence)
     /// </summary>
     /// <param name="defenceChange"> Specifies the value to be added to player's defence</param>
-    void SetDefence(double defenceChange)
+    public void UpdateDefence(double defenceChange)
     {
         this.currentDefence += defenceChange;
         if (this.currentDefence < 0)
@@ -162,7 +175,7 @@ public class PlayerStats : MonoBehaviour
     /// <summary>
     /// Method to reset the player's defence to default (0)
     /// </summary>
-    void ResetDefence()
+    public void ResetDefence()
     {
         this.currentDefence = 0;
     }
@@ -174,7 +187,7 @@ public class PlayerStats : MonoBehaviour
     /// has enough money before deducting the money
     /// </summary>
     /// <param name="moneyIncrement">TSpecifies the value to be added to the player's money</param>
-    void SetMoney(double moneyIncrement)
+    public void UpdateMoney(double moneyIncrement)
     {
         this.currentMoney += moneyIncrement;
         if (this.currentMoney < 0)
@@ -189,7 +202,7 @@ public class PlayerStats : MonoBehaviour
     /// </summary>
     /// <param name="cost">Specifies the cost of the item the user wishes to purchase</param>
     /// <returns>True if the user has enough money to buy the item and false if they don't</returns>
-    bool HasMoney(double cost)
+    public bool HasMoney(double cost)
     {
         this.currentMoney -= cost;
         if(this.currentMoney < 0)
@@ -203,7 +216,7 @@ public class PlayerStats : MonoBehaviour
     /// Method to add a new card to the list of card prefabs
     /// </summary>
     /// <param name="newCard">Specfies the new card prefab to be added to the player's list of cards</param>
-    void AddNewCard(GameObject newCard)
+    public void AddNewCard(GameObject newCard)
     {
         cards.Add(newCard);
     }
