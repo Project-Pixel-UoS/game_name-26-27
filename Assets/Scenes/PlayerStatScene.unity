@@ -1666,7 +1666,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6dc4e48ccdbde1e438ca690c2b8420e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerStats
-  ui: {fileID: 1843688598}
+  cards:
+  - {fileID: 3655631171106493248, guid: 6b287df09f52ae440897a13be33f67ab, type: 3}
+  - {fileID: 3655631171106493248, guid: 2c5f94c929ae6e84295cd42911932266, type: 3}
+  - {fileID: 3655631171106493248, guid: 243b6b1e45557af40b956a4bec1b26e8, type: 3}
+  - {fileID: 3655631171106493248, guid: 2e9f13134746c67459f16403998d39a0, type: 3}
+  - {fileID: 3655631171106493248, guid: 6a1614b7d7f42cd4aa0b0dbd507edd0f, type: 3}
+  ui: {fileID: 1843688596}
+  gameOverScreen: {fileID: 0}
 --- !u!4 &1135711342
 Transform:
   m_ObjectHideFlags: 0
