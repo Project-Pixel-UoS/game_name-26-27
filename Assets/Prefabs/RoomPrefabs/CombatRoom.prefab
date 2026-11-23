@@ -399,7 +399,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 5155581799227908981}
         m_TargetAssemblyTypeName: EnemySpawner, Assembly-CSharp
-        m_MethodName: CompleteRoom
+        m_MethodName: KillAllEnemies
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

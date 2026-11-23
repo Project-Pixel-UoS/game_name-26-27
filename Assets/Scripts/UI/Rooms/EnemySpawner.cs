@@ -7,6 +7,9 @@ using UnityEngine.UI;
 /// Spawns the enemies in correct positions and
 /// Invokes completed on all enemies killed
 /// </summary>
+/// <remarks>
+/// Maintained by: Bailey Stewart
+/// </remarks>
 public class EnemySpawner : RoomCompletedCaller
 {
     [SerializeField] private Button nextRoomButton;
@@ -33,25 +36,13 @@ public class EnemySpawner : RoomCompletedCaller
     /// </summary>
     private void Update()
     {
-        if (activeEnemies.Capacity <= 0 && !RoomManager.instance.isCompleted) { InvokeCompleted(); }
+        if (activeEnemies.Count <= 0 && !RoomManager.instance.isCompleted) { InvokeCompleted(); }
 
-        if (RoomManager.instance.isCompleted)
+        if (RoomManager.instance.isCompleted && completeRoomButton.gameObject.activeSelf    )
         {
             completeRoomButton.gameObject.SetActive(false);
             nextRoomButton.gameObject.SetActive(true);
         }
-    }
-
-    /// <summary>
-    /// Controls the UI visibility and kills all enemies when button is pressed
-    /// temporary for now since there is no battling.
-    /// </summary>
-    public void CompleteRoom()
-    {
-        KillAllEnemies();
-
-        completeRoomButton.gameObject.SetActive(false);
-        nextRoomButton.gameObject.SetActive(true);
     }
 
     /// <summary>
@@ -73,7 +64,7 @@ public class EnemySpawner : RoomCompletedCaller
     /// <param name="list"> The list that the enemy spawn list will be set with</param>
     public void SetEnemyList(List<GameObject> list)
     {
-        // Only allow one set
+        // Only allow one set call to happen
         if (!enemySpawnSet)
         {
             enemySpawnList = list;
@@ -86,17 +77,44 @@ public class EnemySpawner : RoomCompletedCaller
     /// </summary>
     public void spawnEnemies()
     {
+        // Store the width of each enemy
+        List<float> widths = new List<float>();
+        float totalWidth = 0.0f;
+        const float minPadding = 0.1f;
 
-        // define a position for each enemy to space them based of their width and width of screen.
-        // uses a mobile orientation
-        // align horizontally in the middle of the screen
-
-        
         foreach (GameObject enemy in enemySpawnList)
         {
-            // TODO: would apply position here on spawn
-            var _enemy = Instantiate(enemy);
+            GameObject _enemy = Instantiate(enemy);
             activeEnemies.Add(_enemy);
+
+            float width = _enemy.GetComponentInChildren<Renderer>().bounds.size.x;
+            widths.Add(width);
+            totalWidth += width;
         }
+
+        var cam = Camera.main;
+        float screenWidth = cam.orthographicSize * 2f * cam.aspect;
+
+        float leftEdge = cam.transform.position.x - screenWidth * 0.5f;
+
+        float paddingSpace = screenWidth - totalWidth; // Total free space left on screen
+        float padding = paddingSpace / (enemySpawnList.Count + 1.0f); // Padding between edges and enemies
+
+        // prevent them from overlapping
+        if (padding < minPadding)
+        {
+            padding = minPadding;
+        }
+
+        float offset = leftEdge + padding;// Moves from left to right as tempory X coord assignment
+        for (int i = 0; i < activeEnemies.Count; i++)
+        {
+            offset += widths[i] * 0.5f;
+            activeEnemies[i].transform.position = new Vector3(offset, cam.transform.position.y, 0);
+            offset += widths[i] * 0.5f + padding;
+
+        }
+
     }
 }
+   
