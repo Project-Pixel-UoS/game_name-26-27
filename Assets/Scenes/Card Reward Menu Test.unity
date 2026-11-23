@@ -445,6 +445,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 760311657}
     m_Modifications:
+    - target: {fileID: 2561285513364609052, guid: ccee6973a8fcac14fbd6b4669e937bfa, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2561285513364609052, guid: ccee6973a8fcac14fbd6b4669e937bfa, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2561285513364609052, guid: ccee6973a8fcac14fbd6b4669e937bfa, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2739166690475389820, guid: ccee6973a8fcac14fbd6b4669e937bfa, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -484,6 +496,30 @@ PrefabInstance:
     - target: {fileID: 2739166690475389820, guid: ccee6973a8fcac14fbd6b4669e937bfa, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3813072727343599481, guid: ccee6973a8fcac14fbd6b4669e937bfa, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3813072727343599481, guid: ccee6973a8fcac14fbd6b4669e937bfa, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3813072727343599481, guid: ccee6973a8fcac14fbd6b4669e937bfa, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3940899488204746601, guid: ccee6973a8fcac14fbd6b4669e937bfa, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3940899488204746601, guid: ccee6973a8fcac14fbd6b4669e937bfa, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3940899488204746601, guid: ccee6973a8fcac14fbd6b4669e937bfa, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6549164749006482256, guid: ccee6973a8fcac14fbd6b4669e937bfa, type: 3}
       propertyPath: cardOptions.Array.size
