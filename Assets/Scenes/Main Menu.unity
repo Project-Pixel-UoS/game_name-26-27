@@ -2486,7 +2486,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.GraphicRaycaster
-  m_IgnoreReversedGraphics: 0
+  m_IgnoreReversedGraphics: 1
   m_BlockingObjects: 0
   m_BlockingMask:
     serializedVersion: 2
@@ -2576,7 +2576,7 @@ MonoBehaviour:
   settingsPanel: {fileID: 1721582371}
   runSelectPanel: {fileID: 1276032746}
   resumeRunButton: {fileID: 1068288822}
-  hasSaveData: 1
+  hasSaveData: 0
 --- !u!1 &1561901237
 GameObject:
   m_ObjectHideFlags: 0
