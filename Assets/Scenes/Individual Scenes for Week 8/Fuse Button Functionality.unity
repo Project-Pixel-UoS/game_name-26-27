@@ -4243,7 +4243,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1678253521}
         m_TargetAssemblyTypeName: FuseCardsSelect, Assembly-CSharp
-        m_MethodName: MoveToSlot
+        m_MethodName: CardClicked
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

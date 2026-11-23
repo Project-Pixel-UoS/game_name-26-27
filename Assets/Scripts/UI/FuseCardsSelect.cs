@@ -7,7 +7,7 @@ public class FuseCardsSelect : MonoBehaviour
     [SerializeField] private Image targetSlot;
     [SerializeField] private GameObject cardToMove;
 
-    public void MoveToSlot()
+    public void CardClicked()
     {
 
         Debug.Log("Card moved");
