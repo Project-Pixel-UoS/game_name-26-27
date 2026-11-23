@@ -13,10 +13,12 @@ public class HUDScript : MonoBehaviour
     [SerializeField] GameObject pausemenu;
     public Image healthBar;
     private int energy;
+    [SerializeField] private GameObject fuseMenu;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        fuseMenu.SetActive(false);
     }
 
     // Update is called once per frame
@@ -40,5 +42,15 @@ public class HUDScript : MonoBehaviour
     public void FuseButtonClicked()
     {
         Debug.Log("Fuse button working");
+
+        fuseMenu.SetActive(true);
+    }
+
+    /// <summary>
+    /// Method to return from the fuse menu when the back button is clicked
+    /// </summary>
+    public void BackButtonClicked()
+    {
+        fuseMenu.SetActive(false);
     }
 }
