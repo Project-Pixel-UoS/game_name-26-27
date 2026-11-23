@@ -16,6 +16,12 @@ public class RoomData : ScriptableObject
     public GameObject[] enemyTypes = new GameObject[0];
     public RoomType roomType;
 
+    /// <summary>
+    /// Returns room type as a string
+    /// </summary>
+    /// <returns>
+    /// name of type as string
+    /// </returns>
     public string getRoomType()
     {
         string type = roomType.ToString();

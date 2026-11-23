@@ -26,6 +26,22 @@ public class RoomManager : MonoBehaviour
     private void SetComplete() { isCompleted = true; }
 
     /// <summary>
+    /// Returns room type.
+    /// </summary>
+    /// <returns>
+    /// The name of the room type as a string
+    /// </returns>
+    public string GetRoomType()
+    {
+        if (roomData != null)
+        {
+            return roomData.getRoomType();
+        }
+
+        return null;
+    }
+
+    /// <summary>
     /// Unsubscribe from the OnAllEnemiesKilled event when unloaded.
     /// </summary>
     private void OnDisable()
@@ -153,6 +169,9 @@ public class RoomManager : MonoBehaviour
             roomCounter++;
             isCompleted = false;
             LoadNextRoom();
+        } else
+        {
+            Debug.LogWarning("Room " + roomCounter + " not completed, cannot move to next room.");
         }
     }
 

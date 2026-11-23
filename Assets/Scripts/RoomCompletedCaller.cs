@@ -13,4 +13,10 @@ public class RoomCompletedCaller : MonoBehaviour
     {
         OnRoomCompleted.Invoke();
     }
+
+    protected void NextRoom()
+    {
+        Debug.Log("Next Room");
+        RoomManager.instance.NextRoom();
+    }
 }

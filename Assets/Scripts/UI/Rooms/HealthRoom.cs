@@ -1,6 +1,12 @@
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// Invokes the completed room event, manages buttons and healing
+/// </summary>
+/// <remarks>
+/// Maintained by: Bailey Stewart
+/// </remarks>
 public class HealthRoom : RoomCompletedCaller
 {
     [SerializeField] private Button nextRoomButton;
@@ -9,6 +15,7 @@ public class HealthRoom : RoomCompletedCaller
     public void Start()
     {
         healButton.onClick.AddListener(Heal);
+        nextRoomButton.onClick.AddListener(NextRoom);
     }
 
     public void Heal()
@@ -18,10 +25,5 @@ public class HealthRoom : RoomCompletedCaller
 
         healButton.gameObject.SetActive(false);
         nextRoomButton.gameObject.SetActive(true);
-    }
-
-    public void NextRoom()
-    {
-        RoomManager.instance.NextRoom();
     }
 }
