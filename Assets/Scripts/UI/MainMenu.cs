@@ -14,7 +14,7 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private GameObject settingsPanel;
     [SerializeField] private GameObject runSelectPanel;   
     [SerializeField] private Button resumeRunButton;      
-    [SerializeField] private bool hasSaveData; // flag to check if there is an existing run
+    [SerializeField] private bool hasSaveData; // Flag to check if there is an existing run
 
     public void Play()
     {
