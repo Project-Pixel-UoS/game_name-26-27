@@ -305,6 +305,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0eedbd92f060f447af0c4eacfde497f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LabRoom
+  upgradeButton: {fileID: 955984818706237481}
+  nextRoomButton: {fileID: 1778980199260954192}
 --- !u!1 &6303198203058354939
 GameObject:
   m_ObjectHideFlags: 0

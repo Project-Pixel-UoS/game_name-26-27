@@ -407,3 +407,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42923c1c210d5bb4ab9db54e88dbd6e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemySpawner
+  nextRoomButton: {fileID: 6811300494391344870}

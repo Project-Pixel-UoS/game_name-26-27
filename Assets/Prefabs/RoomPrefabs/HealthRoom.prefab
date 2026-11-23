@@ -269,6 +269,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e8e758944a477942a4172afa8dd4e5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HealthRoom
+  nextRoomButton: {fileID: 6087413716830872255}
+  healButton: {fileID: 2464701914935390428}
 --- !u!1 &6110730267779288794
 GameObject:
   m_ObjectHideFlags: 0
