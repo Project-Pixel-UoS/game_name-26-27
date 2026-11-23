@@ -12,12 +12,18 @@ public class LabRoom : RoomCompletedCaller
     [SerializeField] private Button upgradeButton;
     [SerializeField] private Button nextRoomButton;
 
+    /// <summary>
+    /// Subscribes to click events of ui buttons
+    /// </summary>
     public void Start()
     {
         upgradeButton.onClick.AddListener(Upgrade);
         nextRoomButton.onClick.AddListener(NextRoom);
     }
 
+    /// <summary>
+    /// Logs upgrade interaction and changes required button visibility.
+    /// </summary>
     public void Upgrade()
     {
         Debug.Log("Upgrading cards");

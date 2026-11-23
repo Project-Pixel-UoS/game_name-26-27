@@ -12,12 +12,18 @@ public class HealthRoom : RoomCompletedCaller
     [SerializeField] private Button nextRoomButton;
     [SerializeField] private Button healButton;
 
+    /// <summary>
+    /// Subscribes to button onClick events.
+    /// </summary>
     public void Start()
     {
         healButton.onClick.AddListener(Heal);
         nextRoomButton.onClick.AddListener(NextRoom);
     }
 
+    /// <summary>
+    /// Logs healing interaction and toggles buttons visibility.
+    /// </summary>
     public void Heal()
     {
         Debug.Log("Healing Player");
