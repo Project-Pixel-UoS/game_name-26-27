@@ -28,6 +28,8 @@ public class RoomData : ScriptableObject
 /// </summary>
 public enum RoomType
 {
-    HEALING,
-    COMBAT
+    Healing,
+    Combat,
+    Lab
+
 }

@@ -27,7 +27,7 @@ public class RoomManager : MonoBehaviour
     /// </summary>
     private void OnDisable()
     {
-        UIManager.OnAllEnemiesKilled -= SetComplete;
+        UnloadRoom();
     }
 
     /// <summary>
@@ -43,7 +43,6 @@ public class RoomManager : MonoBehaviour
         {
             instance = this;
             LoadNextRoom();
-            UIManager.OnAllEnemiesKilled += SetComplete;
         }
     }
 
@@ -60,15 +59,25 @@ public class RoomManager : MonoBehaviour
 
             if (prefabLoaded == false)
             {
+                // Quit load if no prefab
                 return;
             }
 
-            SpawnEnemies();
-
-            if (prefabLoaded)
+            // fetch RoomFinishCaller and subscribe
+            eventCaller = roomPrefab.GetComponent<RoomFinishCaller>();
+            if (eventCaller != null)
             {
-                Debug.Log("Room " + roomCounter + " Loaded of type " + roomData.getRoomType());
-            } 
+                // Subscribe to the room completed event
+                eventCaller.OnRoomCompleted += SetComplete;
+            } else
+            {
+                Debug.LogWarning("No event caller found on prefab to set room completed.");
+            }
+
+            // TODO: Check if event caller is of enemySpawner type
+
+            Debug.Log("Room " + roomCounter + " Loaded of type " + roomData.getRoomType());
+            
         }
         else
         {
@@ -113,26 +122,30 @@ public class RoomManager : MonoBehaviour
         
     }
 
-    private void SpawnEnemies()
-    {
-        foreach (GameObject enemyPrefab in roomData.enemyTypes)
-        {
-            GameObject enemy = Instantiate(enemyPrefab);
-            enemy.transform.SetParent(roomPrefab.transform);
-        }
-    }
-
     /// <summary>
-    /// Increments the room counter and triggers the load of the new room Data
+    /// Increments the room counter and triggers the load of the new room Data.
     /// </summary>
     public void NextRoom()
     {
         if (isCompleted)
         {
-            Destroy(roomPrefab);
+            UnloadRoom();
             roomCounter++;
             isCompleted = false;
             LoadNextRoom();
+        }
+    }
+
+    /// <summary>
+    /// Unloads the current room prefab, unsubscribes from the completeing event and sets the event caller reference to null.
+    /// </summary>
+    private void UnloadRoom()
+    {
+        if (roomPrefab != null)
+        {
+            eventCaller.OnRoomCompleted -= SetComplete;
+            eventCaller = null;
+            Destroy(roomPrefab);
         }
     }
 
