@@ -13,11 +13,13 @@ using UnityEngine;
 /// </remarks>
 public class EnemyHealth : MonoBehaviour
 {
-    [SerializeField] private float maxHealth = 50;
+    
     [SerializeField, Min(0f)] private float actionDelay = 1f;
     [SerializeField] private TMP_Text statsText;
 
-    private float currentHealth;
+    public float maxHealth = 50;
+    public float currentHealth;
+    public DamageNumberScript numberScript;
     private int defence;
     private bool isDead;
 
@@ -47,12 +49,11 @@ public class EnemyHealth : MonoBehaviour
     {
         yield return new WaitForSeconds(actionDelay);
         if (isDead) yield break;
-
         int absorbed = Mathf.Min(defence, amount);
         defence -= absorbed;
         currentHealth -= amount - absorbed;
         UpdateDisplay();
-
+        numberScript.displayText(amount - absorbed);
         if (currentHealth<=0)
         {
             Die();
