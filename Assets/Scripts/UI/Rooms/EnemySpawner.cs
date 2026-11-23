@@ -1,4 +1,5 @@
 using NUnit.Framework;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,21 +10,52 @@ using UnityEngine.UI;
 public class EnemySpawner : RoomCompletedCaller
 {
     [SerializeField] private Button nextRoomButton;
+    [SerializeField] private Button completeRoomButton;
+    // Current spawned enemies
     private GameObject[] activeEnemies = new GameObject[0];
+    // Enemies to spawn on room start
     private GameObject[] enemySpawnList;
-    private bool enemySpawnSet = false;
+    // Whether the enemies spawn list has been assigned
+    public bool enemySpawnSet { private set; get; } = false;
 
-    public void Start()
+    /// <summary>
+    /// Subscribes next room to the on click event for next room
+    /// </summary>
+    private void Start()
     {
         // Cos its inherited this method doesn't show up in inspector
         nextRoomButton.onClick.AddListener(NextRoom);
     }
 
-    public void Update()
+    /// <summary>
+    /// Invokes the completed event when all enemies are dead.
+    /// This will be more useful when battling works
+    /// </summary>
+    private void Update()
     {
-        if (activeEnemies.Length <= 0) { InvokeCompleted(); }
+        if (activeEnemies.Length <= 0 && !RoomManager.instance.isCompleted) { InvokeCompleted(); }
+
+        if (RoomManager.instance.isCompleted)
+        {
+
+        }
     }
 
+    /// <summary>
+    /// Controls the UI visibility and kills all enemies when button is pressed
+    /// temporary for now since there is no battling.
+    /// </summary>
+    public void CompleteRoom()
+    {
+        KillAllEnemies();
+
+        completeRoomButton.gameObject.SetActive(false);
+        nextRoomButton.gameObject.SetActive(true);
+    }
+
+    /// <summary>
+    /// Defines the process of killing all enemies and clearing the active enemy list.
+    /// </summary>
     public void KillAllEnemies()
     {
         foreach (GameObject enemy in activeEnemies)
@@ -32,22 +64,32 @@ public class EnemySpawner : RoomCompletedCaller
         }
 
         activeEnemies = new GameObject[0];
-
-        InvokeCompleted();
     }
 
+    /// <summary>
+    /// Sets the enemy list
+    /// </summary>
+    /// <param name="list"> The list that the enemy spawn list will be set with</param>
     public void SetEnemyList(GameObject[] list)
     {
         // Only allow one set
         if (!enemySpawnSet)
         {
             enemySpawnList = list;
+            enemySpawnSet =true;
         }
     }
 
+    /// <summary>
+    /// triggers calculation of enemy positions and spawns enemies at those assigned computers.
+    /// </summary>
     public void spawnEnemies()
     {
-        // Calculate positions
-        // Spawn enemies on positions
+        // non permanent testing
+        foreach (GameObject enemy in enemySpawnList)
+        {
+            var _enemy = Instantiate(enemy);
+            activeEnemies.Append(_enemy);
+        }
     }
 }

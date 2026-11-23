@@ -73,7 +73,7 @@ public class RoomManager : MonoBehaviour
         if (!LoadScriptableRoomObject())
         {
             // Quit if no Room Data object
-            Debug.Log("No room data loaded");
+            Debug.LogWarning("No room data loaded");
             return;
         }
         
@@ -105,6 +105,13 @@ public class RoomManager : MonoBehaviour
         roomController = roomPrefab.GetComponent<RoomCompletedCaller>();
 
         if (roomController == null) { return false; }
+
+        if (roomController is EnemySpawner)
+        {
+            EnemySpawner _roomController = (EnemySpawner)roomController;
+            _roomController.SetEnemyList(roomData.enemyTypes);
+            _roomController.spawnEnemies();
+        }
         
         // Subscribe to the room completed event
         roomController.OnRoomCompleted += SetComplete;
