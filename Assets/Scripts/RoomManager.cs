@@ -12,11 +12,14 @@ public class RoomManager : MonoBehaviour
     public int roomCounter { get; private set; } = 1;
     public bool isCompleted { get; private set; } = false;
 
-
+    // Stores which room types link to which room prefab
     [SerializeField] private RoomToPrefab[] mappingList;
-    private RoomFinishCaller eventCaller;
+    // Stores the active room controller such as EnemySpawner
+    private RoomCompletedCaller roomController;
+    // Stores the scriptable object RoomData
     private RoomData roomData;
     private GameObject roomPrefab;
+
     /// <summary>
     /// setter function for the isCompleted variable.
     /// </summary>
@@ -51,38 +54,45 @@ public class RoomManager : MonoBehaviour
     /// </summary>
     private void LoadNextRoom()
     {
-        LoadScriptableRoomObject();
-
-        if (roomData != null)
+        if (!LoadScriptableRoomObject())
         {
-            bool prefabLoaded = LoadPrefabRoom();
-
-            if (prefabLoaded == false)
-            {
-                // Quit load if no prefab
-                return;
-            }
-
-            // fetch RoomFinishCaller and subscribe
-            eventCaller = roomPrefab.GetComponent<RoomFinishCaller>();
-            if (eventCaller != null)
-            {
-                // Subscribe to the room completed event
-                eventCaller.OnRoomCompleted += SetComplete;
-            } else
-            {
-                Debug.LogWarning("No event caller found on prefab to set room completed.");
-            }
-
-            // TODO: Check if event caller is of enemySpawner type
-
-            Debug.Log("Room " + roomCounter + " Loaded of type " + roomData.getRoomType());
-            
-        }
-        else
-        {
+            // Quit if no Room Data object
             Debug.Log("No room data loaded");
+            return;
         }
+        
+        if (!LoadPrefabRoom())
+        {
+            // Quit load if no prefab
+            return;
+        }
+
+        if (!LoadRoomController())
+        {
+            // Warn if no room controller found
+            Debug.LogWarning("No RoomCompletedCaller component found on prefab to set room completed.");
+        }
+
+        // TODO: Check if room controller is of enemySpawner type
+
+        Debug.Log("Room " + roomCounter + " Loaded of type " + roomData.getRoomType() + " Successfully.");
+            
+    }
+
+    /// <summary>
+    /// Attemps to find the event Caller
+    /// </summary>
+    /// <returns></returns>
+    public bool LoadRoomController()
+    {
+        // fetch RoomFinishCaller and subscribe
+        roomController = roomPrefab.GetComponent<RoomCompletedCaller>();
+
+        if (roomController == null) { return false; }
+        
+        // Subscribe to the room completed event
+        roomController.OnRoomCompleted += SetComplete;
+        return true;
     }
 
     /// <summary>
@@ -90,19 +100,29 @@ public class RoomManager : MonoBehaviour
     /// Logs a Warning if the room is not found.
     /// Sets room = null if not found.
     /// </summary>
-    private void LoadScriptableRoomObject()
+    /// <returns>
+    /// True if successful, False if not.
+    /// </returns>
+    private bool LoadScriptableRoomObject()
     {
         var room = Resources.Load<RoomData>("Objects/Rooms/Room" + roomCounter);
 
         if (room == null)
         {
             Debug.LogWarning("No file found for room number " + roomCounter + ". Failed to load level.");
-            return;
+            return false;
         }
 
         roomData = room;
+        return true;
     }
 
+    /// <summary>
+    /// Loads the prefab that corresponds to the room type from mapping list
+    /// </summary>
+    /// <returns>
+    /// True if successful, False if not.
+    /// </returns>
     private bool LoadPrefabRoom()
     {
         // Load Correct prefab
@@ -143,8 +163,8 @@ public class RoomManager : MonoBehaviour
     {
         if (roomPrefab != null)
         {
-            eventCaller.OnRoomCompleted -= SetComplete;
-            eventCaller = null;
+            roomController.OnRoomCompleted -= SetComplete;
+            roomController = null;
             Destroy(roomPrefab);
         }
     }
