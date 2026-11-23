@@ -1,7 +1,3 @@
-using System.IO;
-using System.Security.Cryptography;
-using Unity.VisualScripting;
-using UnityEditor.PackageManager;
 using UnityEngine;
 
 /// <summary>
@@ -18,7 +14,7 @@ public class RoomManager : MonoBehaviour
 
 
     [SerializeField] private RoomToPrefab[] mappingList;
-    [SerializeField] private RoomCompleter UIManager;
+    private RoomFinishCaller eventCaller;
     private RoomData roomData;
     private GameObject roomPrefab;
     /// <summary>
