@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 [CreateAssetMenu(fileName = "RoomData", menuName = "Scriptable Objects/RoomData")]
 
@@ -13,7 +14,7 @@ using UnityEngine;
 /// </remarks>
 public class RoomData : ScriptableObject
 {
-    public GameObject[] enemyTypes = new GameObject[0];
+    public List<GameObject> enemyTypes = new List<GameObject>();
     public RoomType roomType;
 
     /// <summary>

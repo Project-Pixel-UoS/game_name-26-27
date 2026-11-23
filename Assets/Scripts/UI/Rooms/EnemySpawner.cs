@@ -1,5 +1,5 @@
-using NUnit.Framework;
-using System.Linq;
+using System.Collections.Generic;
+using UnityEditor.Tilemaps;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,9 +12,9 @@ public class EnemySpawner : RoomCompletedCaller
     [SerializeField] private Button nextRoomButton;
     [SerializeField] private Button completeRoomButton;
     // Current spawned enemies
-    private GameObject[] activeEnemies = new GameObject[0];
+    private List<GameObject> activeEnemies = new List<GameObject>(0);
     // Enemies to spawn on room start
-    private GameObject[] enemySpawnList;
+    private List<GameObject> enemySpawnList;
     // Whether the enemies spawn list has been assigned
     public bool enemySpawnSet { private set; get; } = false;
 
@@ -33,11 +33,12 @@ public class EnemySpawner : RoomCompletedCaller
     /// </summary>
     private void Update()
     {
-        if (activeEnemies.Length <= 0 && !RoomManager.instance.isCompleted) { InvokeCompleted(); }
+        if (activeEnemies.Capacity <= 0 && !RoomManager.instance.isCompleted) { InvokeCompleted(); }
 
         if (RoomManager.instance.isCompleted)
         {
-
+            completeRoomButton.gameObject.SetActive(false);
+            nextRoomButton.gameObject.SetActive(true);
         }
     }
 
@@ -63,20 +64,20 @@ public class EnemySpawner : RoomCompletedCaller
             Destroy(enemy);
         }
 
-        activeEnemies = new GameObject[0];
+        activeEnemies = new List<GameObject>(0);
     }
 
     /// <summary>
     /// Sets the enemy list
     /// </summary>
     /// <param name="list"> The list that the enemy spawn list will be set with</param>
-    public void SetEnemyList(GameObject[] list)
+    public void SetEnemyList(List<GameObject> list)
     {
         // Only allow one set
         if (!enemySpawnSet)
         {
             enemySpawnList = list;
-            enemySpawnSet =true;
+            enemySpawnSet = true;
         }
     }
 
@@ -85,11 +86,17 @@ public class EnemySpawner : RoomCompletedCaller
     /// </summary>
     public void spawnEnemies()
     {
-        // non permanent testing
+
+        // define a position for each enemy to space them based of their width and width of screen.
+        // uses a mobile orientation
+        // align horizontally in the middle of the screen
+
+        
         foreach (GameObject enemy in enemySpawnList)
         {
+            // TODO: would apply position here on spawn
             var _enemy = Instantiate(enemy);
-            activeEnemies.Append(_enemy);
+            activeEnemies.Add(_enemy);
         }
     }
 }
