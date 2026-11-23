@@ -75,7 +75,7 @@ public class EnemySpawner : RoomCompletedCaller
     /// <summary>
     /// triggers calculation of enemy positions and spawns enemies at those assigned computers.
     /// </summary>
-    public void spawnEnemies()
+    public void spawnEnemies(Transform parentTransform)
     {
         // Store the width of each enemy
         List<float> widths = new List<float>();
@@ -85,6 +85,7 @@ public class EnemySpawner : RoomCompletedCaller
         foreach (GameObject enemy in enemySpawnList)
         {
             GameObject _enemy = Instantiate(enemy);
+            _enemy.transform.parent = parentTransform;
             activeEnemies.Add(_enemy);
 
             float width = _enemy.GetComponentInChildren<Renderer>().bounds.size.x;

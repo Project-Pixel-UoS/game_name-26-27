@@ -111,7 +111,7 @@ public class RoomManager : MonoBehaviour
         {
             EnemySpawner _roomController = (EnemySpawner)roomController;
             _roomController.SetEnemyList(roomData.enemyTypes);
-            _roomController.spawnEnemies();
+            _roomController.spawnEnemies(roomPrefab.transform);
         }
         
         // Subscribe to the room completed event
