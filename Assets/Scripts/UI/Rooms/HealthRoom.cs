@@ -17,7 +17,7 @@ public class HealthRoom : RoomCompletedCaller
     /// </summary>
     public void Start()
     {
-        healButton.onClick.AddListener(Heal);
+        // Inherited method so doesn't show up in inspector (must be done in code)
         nextRoomButton.onClick.AddListener(NextRoom);
     }
 

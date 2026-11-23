@@ -15,6 +15,7 @@ public class EnemySpawner : RoomCompletedCaller
 
     public void Start()
     {
+        // Cos its inherited this method doesn't show up in inspector
         nextRoomButton.onClick.AddListener(NextRoom);
     }
 

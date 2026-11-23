@@ -17,7 +17,6 @@ public class LabRoom : RoomCompletedCaller
     /// </summary>
     public void Start()
     {
-        upgradeButton.onClick.AddListener(Upgrade);
         nextRoomButton.onClick.AddListener(NextRoom);
     }
 
