@@ -79,12 +79,12 @@ public class PlayerStats : MonoBehaviour
 
     /// <summary>
     /// Method to log the player died and display the Game Over scene
-    /// After loding the Game Over scene, the Game time is paused.
+    /// After loading the Game Over scene, the Game time is paused.
     /// </summary>
     void PlayerDeath()
     {
         Debug.Log("Player Died");
-        SceneManager.LoadScene("Game Over", LoadSceneMode.Additive);
+        SceneTransition.instance.TransitionScene("Game Over");
         Time.timeScale = 0f;
 
     }
