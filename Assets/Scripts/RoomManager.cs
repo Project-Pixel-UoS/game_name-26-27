@@ -23,7 +23,7 @@ public class RoomManager : MonoBehaviour
     /// <summary>
     /// setter function for the isCompleted variable.
     /// </summary>
-    private void SetComplete() { isCompleted = true; }
+    private void SetComplete() { isCompleted = true; Debug.Log("Room " + roomCounter + " completed."); }
 
     /// <summary>
     /// Returns room type.
