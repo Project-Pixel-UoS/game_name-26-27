@@ -7,18 +7,17 @@ public class ChangeHealthbar : MonoBehaviour
 
     public Slider healthBar;
     public TMP_Text healthText;
-    public int health;
-    public int maxHealth;
+    private EnemyHealth stats;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        maxHealth = health;
+        stats = GetComponent<EnemyHealth>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        healthText.text = health + " / " + maxHealth;
-        healthBar.value = (float)health / (float)maxHealth;
+        healthText.text = stats.currentHealth + " / " + stats.maxHealth;
+        healthBar.value = (float)stats.currentHealth / (float)stats.maxHealth;
     }
 }
