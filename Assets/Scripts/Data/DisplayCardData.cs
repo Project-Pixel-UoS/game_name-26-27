@@ -12,7 +12,7 @@ using UnityEngine.UI;
 public class DisplayCardData : MonoBehaviour
 {
 
-    [SerializeField] private CardData displayedData;
+    public CardData displayedData;
     private TMP_Text cardTitle;
     private TMP_Text cardDescription;
     private TMP_Text energyCost;

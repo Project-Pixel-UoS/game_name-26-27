@@ -8,6 +8,7 @@ public class FuseCardsSelect : MonoBehaviour
     [SerializeField] private GameObject cardToMove;
     [SerializeField] private GameObject hand;
     [SerializeField] private GameObject fuseMenu;
+    [SerializeField] private FuseCardsResult fusionManager;
 
     public void CardClicked()
     {
@@ -18,6 +19,7 @@ public class FuseCardsSelect : MonoBehaviour
         {
             MoveSlottedCardToHand();
             MoveCardToSlot();
+            fusionManager.CheckFusion();
         }
         else if (cardToMove.transform.parent == targetSlot.transform)
         {
