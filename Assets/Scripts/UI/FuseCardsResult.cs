@@ -56,10 +56,19 @@ public class FuseCardsResult : MonoBehaviour
 
         fusedCardGO.AddComponent<FuseCardsSelect>(); // Add the FuseCardsSelect script so it can be clicked and moved back to the hand
 
+        fusedCardGO.gameObject.tag = "Card"; // Set the tag to "Card" so it can be moved back to the hand
         FuseCardsSelect fuseSelect = fusedCardGO.GetComponent<FuseCardsSelect>();
 
         // Assign the necessary references to the FuseCardsSelect script
-        fuseSelect.targetSlot = resultCardSlot.GetComponent<Image>();
+        if (fusedCard.effectType == CardEffectType.Spirit)
+        {
+            fuseSelect.targetSlot = inputCardSlots[1].GetComponent<Image>();
+        }
+        else
+        {
+            fuseSelect.targetSlot = inputCardSlots[0].GetComponent<Image>();
+        }
+
         fuseSelect.cardToMove = fusedCardGO;
         fuseSelect.hand = GameObject.Find("Content");
         fuseSelect.fuseMenu = fusedCardGO.transform.parent.parent.gameObject;

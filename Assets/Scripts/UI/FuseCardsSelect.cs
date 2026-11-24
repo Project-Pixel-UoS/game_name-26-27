@@ -33,7 +33,7 @@ public class FuseCardsSelect : MonoBehaviour
             MoveCardToSlot();
             fusionManager.CheckFusion();
         }
-        else if (cardToMove.transform.parent == targetSlot.transform)
+        else
         {
             MoveCardBackToHand(cardToMove);
         }
