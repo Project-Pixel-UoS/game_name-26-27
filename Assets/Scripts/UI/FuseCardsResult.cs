@@ -52,7 +52,7 @@ public class FuseCardsResult : MonoBehaviour
 
         fusedCardGO.AddComponent<Button>();
         fusedCardGO.AddComponent<Image>();
-        fusedCardGO.GetComponent<Image>().Color = new Color(1f, 1f, 1f, 0f); // Set the image to be transparent
+        fusedCardGO.GetComponent<Image>().color = new Color(1f, 1f, 1f, 0f); // Set the image to be transparent
 
         fusedCardGO.AddComponent<FuseCardsSelect>(); // Add the FuseCardsSelect script so it can be clicked and moved back to the hand
 
