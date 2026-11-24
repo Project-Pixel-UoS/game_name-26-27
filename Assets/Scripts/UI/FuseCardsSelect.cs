@@ -16,11 +16,12 @@ public class FuseCardsSelect : MonoBehaviour
 
         if (cardToMove.transform.parent == hand.transform)
         {
+            MoveSlottedCardToHand();
             MoveCardToSlot();
         }
         else if (cardToMove.transform.parent == targetSlot.transform)
         {
-            MoveCardBackToHand();
+            MoveCardBackToHand(cardToMove);
         }
     }
 
@@ -40,12 +41,12 @@ public class FuseCardsSelect : MonoBehaviour
         Debug.Log("Card moved to slot: " + targetSlot.name);
     }
 
-    private void MoveCardBackToHand()
+    private void MoveCardBackToHand(GameObject slottedCard)
     {
         Debug.Log("Card moved back to hand");
-        cardToMove.transform.SetParent(hand.transform);
+        slottedCard.transform.SetParent(hand.transform);
 
-        RectTransform cardRectTransform = cardToMove.GetComponent<RectTransform>();
+        RectTransform cardRectTransform = slottedCard.GetComponent<RectTransform>();
         cardRectTransform.anchorMin = new Vector2(0.5f, 0.5f);
         cardRectTransform.anchorMax = new Vector2(0.5f, 0.5f);
         cardRectTransform.pivot = new Vector2(0.5f, 0.5f);
@@ -54,6 +55,18 @@ public class FuseCardsSelect : MonoBehaviour
         cardRectTransform.localScale = Vector3.one;
 
         Debug.Log("Card moved back to hand: " + hand.name);
+    }
+
+    private void MoveSlottedCardToHand()
+    {
+        foreach (Transform child in targetSlot.transform)
+        {
+            if (child.CompareTag("Card"))
+            {
+                MoveCardBackToHand(child.gameObject);
+                return; // Assuming only one card can be slotted at a time
+            }
+        }
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
