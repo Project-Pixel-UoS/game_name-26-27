@@ -54,6 +54,8 @@ public class HUDScript : MonoBehaviour
 
         List<Transform> children = new List<Transform>();
 
+        // Create a list of all children in the BattleCardSlot and SpiritCardSlot
+
         foreach (Transform child in fuseMenu.transform.Find("BattleCardSlot").transform)
         {
             children.Add(child);
@@ -63,7 +65,9 @@ public class HUDScript : MonoBehaviour
         {
             children.Add(child);
         }
+        
 
+        // Place the children back into the hand if they are cards
         
         foreach (Transform child in children)
         {
