@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class FuseCardsResult : MonoBehaviour
 {
@@ -35,14 +36,21 @@ public class FuseCardsResult : MonoBehaviour
 
     private void DisplayFusedCard(CardData fusedCard)
     {
-        // Clear the result slot first
-        foreach (Transform child in resultCardSlot)
-        {
-            Destroy(child.gameObject);
-        }
-
         // Create a new card GameObject and set its data
         GameObject fusedCardGO = Instantiate(fusedCardPrefab, resultCardSlot);
+        fusedCardGO.name = "ResultCard";
         fusedCardGO.GetComponent<DisplayCardData>().displayedData = fusedCard;
+        fusedCardGO.AddComponent<Button>();
+        fusedCardGO.AddComponent<Image>();
+        fusedCardGO.AddComponent<FuseCardsSelect>();
+        FuseCardsSelect fuseSelect = fusedCardGO.GetComponent<FuseCardsSelect>();
+        fuseSelect.targetSlot = resultCardSlot.GetComponent<Image>();
+        fuseSelect.cardToMove = fusedCardGO;
+        fuseSelect.hand = GameObject.Find("Content");
+        fuseSelect.fuseMenu = fusedCardGO.transform.parent.parent.gameObject;
+        fuseSelect.fusionManager = this;
+        Button button = fusedCardGO.GetComponent<Button>();
+        button.onClick.AddListener(fuseSelect.CardClicked);
+        Destroy(fusedCardGO.GetComponent<Canvas>());
     }
 }

@@ -4,11 +4,11 @@ using UnityEngine.UI;
 public class FuseCardsSelect : MonoBehaviour
 {
 
-    [SerializeField] private Image targetSlot;
-    [SerializeField] private GameObject cardToMove;
-    [SerializeField] private GameObject hand;
-    [SerializeField] private GameObject fuseMenu;
-    [SerializeField] private FuseCardsResult fusionManager;
+    public Image targetSlot;
+    public GameObject cardToMove;
+    public GameObject hand;
+    public GameObject fuseMenu;
+    public FuseCardsResult fusionManager;
 
     public void CardClicked()
     {
