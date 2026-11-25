@@ -26,41 +26,35 @@ public class AudioManager : MonoBehaviour
 
     /// <summary> 
     /// plays a oneshot audio clip, set persistent = true if audio needs to persist between scene changes
+    /// pitchVariance is multiplicative
     /// </summary>
-    public void PlaySFXClip(AudioClip audioClip, Transform spawnTransform, float volume, bool persistent = false)
+    public void PlaySFXClip(AudioClip audioClip, Transform spawnTransform, float volume, bool isPersistent = false, float pitch = 1f, float pitchVariance = 0f)
     {
         AudioSource audioSource = Instantiate(sfxObject, spawnTransform.position, Quaternion.identity);
-        if (persistent)
+        if (isPersistent)
         {
             DontDestroyOnLoad(audioSource.gameObject);
         }
 
+        float varianceMultiplier = Random.Range(1f - pitchVariance, 1f + pitchVariance);
+        float finalPitch = Mathf.Max(0.01f, pitch * varianceMultiplier);
+
         audioSource.clip = audioClip;
         audioSource.volume = volume;
+        audioSource.pitch = finalPitch;
         audioSource.Play();
 
-        float clipLength = audioSource.clip.length;
+        float clipLength = audioSource.clip.length / finalPitch;
         Destroy(audioSource.gameObject, clipLength);
     }
 
     /// <summary> 
     /// plays a random oneshot audio clip from a pool of clips, set persistent = true if audio needs to persist between scene changes
+    /// pitchVariance is multiplicative
     /// </summary>
-    public void PlayRandomSFXClip(AudioClip[] audioClip, Transform spawnTransform, float volume, bool persistent = false)
+    public void PlayRandomSFXClip(AudioClip[] audioClips, Transform spawnTransform, float volume, bool isPersistent = false, float pitch = 1f, float pitchVariance = 0f)
     {
-        int rand = Random.Range(0, audioClip.Length);
-
-        AudioSource audioSource = Instantiate(sfxObject, spawnTransform.position, Quaternion.identity);
-        if (persistent)
-        {
-            DontDestroyOnLoad(audioSource.gameObject);
-        }
-
-        audioSource.clip = audioClip[rand];
-        audioSource.volume = volume;
-        audioSource.Play();
-
-        float clipLength = audioSource.clip.length;
-        Destroy(audioSource.gameObject, clipLength);
+        int rand = Random.Range(0, audioClips.Length);
+        PlaySFXClip(audioClips[rand], spawnTransform, volume, isPersistent, pitch, pitchVariance);
     }
 }
