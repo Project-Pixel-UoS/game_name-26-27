@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 [CreateAssetMenu(fileName = "RoomData", menuName = "Scriptable Objects/RoomData")]
 
@@ -13,9 +14,15 @@ using UnityEngine;
 /// </remarks>
 public class RoomData : ScriptableObject
 {
-    public GameObject[] enemyTypes = new GameObject[0];
+    public List<GameObject> enemyTypes = new List<GameObject>();
     public RoomType roomType;
 
+    /// <summary>
+    /// Returns room type as a string
+    /// </summary>
+    /// <returns>
+    /// name of type as string
+    /// </returns>
     public string getRoomType()
     {
         string type = roomType.ToString();
@@ -28,6 +35,8 @@ public class RoomData : ScriptableObject
 /// </summary>
 public enum RoomType
 {
-    HEALING,
-    COMBAT
+    Healing,
+    Combat,
+    Lab
+
 }

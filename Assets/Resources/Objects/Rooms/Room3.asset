@@ -12,5 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83bdd0ace3e104547ac6b0ecce5ba897, type: 3}
   m_Name: Room3
   m_EditorClassIdentifier: Assembly-CSharp::RoomData
-  spawnOptions: []
+  enemyTypes:
+  - {fileID: 4856643234292287252, guid: ccad103ded9175a47800edb52fbb6fd7, type: 3}
+  - {fileID: 4856643234292287252, guid: ccad103ded9175a47800edb52fbb6fd7, type: 3}
+  - {fileID: 4856643234292287252, guid: ccad103ded9175a47800edb52fbb6fd7, type: 3}
   roomType: 1
