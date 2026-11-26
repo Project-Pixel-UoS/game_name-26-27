@@ -1,0 +1,42 @@
+using UnityEngine;
+using System.Collections.Generic;
+
+[CreateAssetMenu(fileName = "RoomData", menuName = "Scriptable Objects/RoomData")]
+
+// Files should be named to be "Room1" or "Room2" and so on
+
+
+/// <summary>
+/// Stores data about each Room, such as which enemies can spawn
+/// </summary>
+/// <remarks>
+/// Maintained by: Bailey Stewart
+/// </remarks>
+public class RoomData : ScriptableObject
+{
+    public List<GameObject> enemyTypes = new List<GameObject>();
+    public RoomType roomType;
+
+    /// <summary>
+    /// Returns room type as a string
+    /// </summary>
+    /// <returns>
+    /// name of type as string
+    /// </returns>
+    public string getRoomType()
+    {
+        string type = roomType.ToString();
+        return type;
+    }
+}
+
+/// <summary>
+/// an enum for different types of room
+/// </summary>
+public enum RoomType
+{
+    Healing,
+    Combat,
+    Lab
+
+}
