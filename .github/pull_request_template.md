@@ -2,14 +2,15 @@
 
 *Add a brief description here.*
 
-*Confirm there are no console errors, and you have suitably commented your code.*
+*Confirm that there are no console errors, and that you have suitably commented your code.*
 
 # Testing
 
-*(If applicable:) Notes about how you have tested it and how another person can too.*
+*Please add notes about how you have tested it, and how another person can too.*
 
 # Related issues
 
-*Reference the issue this relates to. Some keywords will automatically close the issue when the PR is merged! See examples below.*
+*Please reference the issue this relates to using the appropriate keyword. For more information, see [here](https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/using-keywords-in-issues-and-pull-requests#linking-a-pull-request-to-an-issue). Find examples below.*
+
 - Closes #998
 - Fixes #999
