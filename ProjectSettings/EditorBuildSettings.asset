@@ -23,6 +23,18 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Individual Scenes for Week 8/Game Over.unity
     guid: b0cc185e3ba808041a56f663fe5eac31
+  - enabled: 1
+    path: Assets/Scenes/Individual Scenes for Week 8/PlayerStatScene.unity
+    guid: 92231bf5289ea5e40889509bc8ee452b
+  - enabled: 1
+    path: Assets/Scenes/Individual Scenes for Week 8/NewRoomTypes.unity
+    guid: 6a604c1eadf307b41a45bf04751c0a83
+  - enabled: 1
+    path: Assets/Scenes/Individual Scenes for Week 8/Enemy Health Scene.unity
+    guid: 3eb39b671f05a384d9becbcf750a8af4
+  - enabled: 1
+    path: Assets/Scenes/Individual Scenes for Week 8/Combined Gameplay Scene.unity
+    guid: bdc831cb7916c4d4581dc97c92a7e2aa
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
