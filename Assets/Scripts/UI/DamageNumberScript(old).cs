@@ -3,7 +3,7 @@ using UnityEngine.UI;
 using System.Collections;
 using TMPro;
 
-public class DamageNumberScript : MonoBehaviour
+public class DamageNumberScriptOLD : MonoBehaviour
 {
 
     public TMP_Text damageText;

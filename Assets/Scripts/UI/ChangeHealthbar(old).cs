@@ -2,7 +2,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 
-public class ChangeHealthbar : MonoBehaviour
+public class ChangeHealthbarOLD : MonoBehaviour
 {
 
     public Slider healthBar;

@@ -264,7 +264,15 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -146313799566070101, guid: ccad103ded9175a47800edb52fbb6fd7, type: 3}
+      propertyPath: numberScript
+      value: 
+      objectReference: {fileID: 1586963161}
     - target: {fileID: 402632821506837222, guid: ccad103ded9175a47800edb52fbb6fd7, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1772308830246818104, guid: ccad103ded9175a47800edb52fbb6fd7, type: 3}
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
@@ -1226,6 +1234,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 735852864}
   m_CullTransparentMesh: 1
+--- !u!114 &1586963161 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3109427231367196574, guid: ccad103ded9175a47800edb52fbb6fd7, type: 3}
+  m_PrefabInstance: {fileID: 210130707}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d601d0836d98bc4bac445d9e6d4bfaa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DamageNumberScript
 --- !u!1 &1855183516
 GameObject:
   m_ObjectHideFlags: 0

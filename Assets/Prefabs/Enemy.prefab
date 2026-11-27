@@ -254,8 +254,8 @@ GameObject:
   - component: {fileID: 7772519701331583255}
   - component: {fileID: 3356683370934621212}
   - component: {fileID: -146313799566070101}
-  - component: {fileID: 402632821506837222}
-  - component: {fileID: 1772308830246818104}
+  - component: {fileID: 6776311098547370897}
+  - component: {fileID: 3109427231367196574}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -354,22 +354,8 @@ MonoBehaviour:
   statsText: {fileID: 2605240950409808260}
   maxHealth: 50
   currentHealth: 0
-  numberScript: {fileID: 402632821506837222}
---- !u!114 &402632821506837222
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4856643234292287252}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 81f50c336efcd1e40a6a01ee970b1229, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::DamageNumberScript
-  damageText: {fileID: 1580374454095008555}
-  timeToFade: 3
---- !u!114 &1772308830246818104
+  numberScript: {fileID: 0}
+--- !u!114 &6776311098547370897
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -378,11 +364,25 @@ MonoBehaviour:
   m_GameObject: {fileID: 4856643234292287252}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f991263004b77d147ba30479fccc908b, type: 3}
+  m_Script: {fileID: 11500000, guid: 3909e74b23c0e5e4f859b2c1e0aab978, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ChangeHealthbar
   healthBar: {fileID: 7427470748219699210}
   healthText: {fileID: 4519399682239302481}
+--- !u!114 &3109427231367196574
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4856643234292287252}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d601d0836d98bc4bac445d9e6d4bfaa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DamageNumberScript
+  damageText: {fileID: 1580374454095008555}
+  timeToFade: 1
 --- !u!1001 &1526930167741276995
 PrefabInstance:
   m_ObjectHideFlags: 0
