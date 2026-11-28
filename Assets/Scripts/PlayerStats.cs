@@ -85,7 +85,7 @@ public class PlayerStats : MonoBehaviour
     {
         Debug.Log("Player Died");
         SceneTransition.instance.TransitionScene("Game Over");
-        Time.timeScale = 0f;
+        // Time.timeScale = 0f; Commented out because the scene transition system will not work if time is paused
 
     }
 
